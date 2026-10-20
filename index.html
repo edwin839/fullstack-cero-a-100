@@ -1,16 +1,68 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-  <title>Mi primera página</title>
-  <style>
-    body { font-family: Arial; background: #111; color: white; display: flex; height: 100vh; justify-content: center; align-items: center; flex-direction: column; }
-    h1 { color: #00ff88; }
-    button { padding: 15px 30px; font-size: 18px; cursor: pointer; border-radius: 10px; border: none; background: #00ff88; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edwin Piña García - Gerente de Sistemas | Full Stack en formación</title>
+<style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background:#0a0a0a; color:#e5e5e5; line-height:1.6; }
+  .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+  header { text-align:center; padding: 60px 0 40px; border-bottom: 1px solid #222; }
+  .avatar { width:140px; height:140px; border-radius:50%; object-fit:cover; border:3px solid #00ff88; margin-bottom:20px; background:#1a1a1a; display:block; margin-left:auto; margin-right:auto; }
+  h1 { font-size: 42px; letter-spacing:-1px; }
+  .subtitle { color:#00ff88; font-size:20px; margin:10px 0; font-weight:600; }
+  .tagline { color:#888; max-width:600px; margin: 15px auto 0; }
+  .btn { display:inline-block; margin-top:25px; padding:12px 28px; background:#00ff88; color:#000; text-decoration:none; border-radius:8px; font-weight:700; }
+  .btn:hover { background:#00cc6a; }
+  section { padding: 50px 0; border-bottom: 1px solid #1a1a1a; }
+  h2 { font-size:28px; margin-bottom:25px; color:#fff; }
+  .exp { background:#111; padding:20px; border-radius:12px; margin-bottom:15px; border-left:3px solid #00ff88; }
+  .exp h3 { color:#fff; }
+  .exp .date { color:#00ff88; font-size:14px; }
+  .exp p { color:#aaa; margin-top:8px; font-size:15px; }
+  .skills { display:flex; flex-wrap:wrap; gap:10px; }
+  .skill { background:#1a1a1a; border:1px solid #222; padding:8px 14px; border-radius:20px; font-size:14px; }
+  .skill.green { border-color:#00ff88; color:#00ff88; }
+  footer { text-align:center; padding:40px 0; color:#555; font-size:14px; }
+</style>
 </head>
 <body>
-  <h1>¡Hola! Soy Edwin Piña Garcia, futuro Full Stack 🚀 </h1>
-  <p>Si ves esto, ya empezaste.</p>
-  <button onclick="alert('¡Ya eres dev! Seguimos mañana?')">Dale click</button>
-</body>
-</html>
+  <div class="container">
+    <header>
+      <!-- Si no tienes foto.jpg aun, se verá un circulo gris. Cuando agregues foto.jpg aparecerá sola -->
+      <img src="foto.jpg" alt="Edwin Piña" class="avatar" onerror="this.style.display='none'">
+      <h1>Edwin Piña García</h1>
+      <div class="subtitle">Gerente de Sistemas → Full Stack Developer</div>
+      <p class="tagline">20+ años liderando infraestructura TI en empresas nacionales. Ingeniero en Sistemas Computacionales. Ahora construyendo productos web de cero a cien.</p>
+      <a href="https://github.com/edwin839" target="_blank" class="btn">Ver mi GitHub</a>
+    </header>
+
+    <section>
+      <h2>Experiencia</h2>
+      <div class="exp">
+        <h3>Gerente de Sistemas - Merka Comercializadora SA de CV</h3>
+        <div class="date">Abril 2019 - Actualidad | Guadalajara</div>
+        <p>Responsable del área de Infraestructura. Liderando soporte, redes, seguridad y operación TI de la empresa.</p>
+      </div>
+      <div class="exp">
+        <h3>Ingeniero de Soporte - Grupo Herradura / PCM / STGT</h3>
+        <div class="date">2014 - 2019</div>
+        <p>Soporte a usuarios nacionales y foráneos, taquillas de venta, configuración de módems en autobuses, ERP Syteline, telefonía IP, CCTV, cableado estructurado, impresoras Zebra.</p>
+      </div>
+      <div class="exp">
+        <h3>Ingeniería en Sistemas Computacionales - Centro Universitario Azteca</h3>
+        <div class="date">1998 - 2002 | Titulado</div>
+        <p>Base sólida en sistemas, redes y desarrollo.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Stack Actual</h2>
+      <div class="skills">
+        <span class="skill green">Infraestructura TI</span>
+        <span class="skill green">Redes</span>
+        <span class="skill green">ERP</span>
+        <span class="skill green">Windows Server</span>
+        <span class="skill">HTML5</span>
+        <span class="
