@@ -3,55 +3,51 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Edwin Piña García - Full Stack Developer</title>
-<meta property="og:title" content="Edwin Piña García - Full Stack Developer">
-<meta property="og:description" content="20+ años en infraestructura TI. Ahora construyendo productos web.">
+<title>Edwin Piña García - Full Stack</title>
 <style>
-  :root { --bg:#0a0a0a; --card:#111; --card-hover:#1a1a1a; --text:#e5e5e5; --muted:#888; --accent:#00ff88; --border:#222; --shadow:0 10px 30px rgba(0,0,0,0.5); }
+  :root { --bg:#0a0a0a; --card:#111; --card-hover:#1a1a1a; --text:#e5e5e5; --muted:#888; --accent:#00ff88; --border:#222; }
   .light { --bg:#f7f7f8; --card:#fff; --card-hover:#f1f1f1; --text:#111; --muted:#666; --border:#e5e5e5; }
   * { margin:0; padding:0; box-sizing:border-box; } html { scroll-behavior:smooth; }
-  body { font-family:'Segoe UI',sans-serif; background:var(--bg); color:var(--text); line-height:1.6; transition:.3s; }
-
-  /* NAVBAR */
+  body { font-family:'Segoe UI',sans-serif; background:var(--bg); color:var(--text); line-height:1.6; }
   .navbar { position:sticky; top:0; z-index:100; backdrop-filter:blur(12px); background:color-mix(in srgb, var(--bg) 90%, transparent); border-bottom:1px solid var(--border); padding:14px 0; }
   .nav-inner { max-width:1100px; margin:0 auto; padding:0 20px; display:flex; justify-content:space-between; align-items:center; }
-  .nav-links { display:flex; gap:22px; } .nav-links a { text-decoration:none; color:var(--muted); font-weight:600; font-size:14px; }
-  .nav-links a:hover { color:var(--accent); }
+  .nav-links { display:flex; gap:22px; } .nav-links a { text-decoration:none; color:var(--muted); font-weight:600; font-size:14px; } .nav-links a:hover { color:var(--accent); }
   .nav-right { display:flex; gap:10px; align-items:center; }
   .hamburger { display:none; background:var(--card); border:1px solid var(--border); padding:8px 12px; border-radius:10px; font-size:20px; cursor:pointer; color:var(--text); }
-  .mobile-menu { display:none; position:absolute; top:100%; left:0; right:0; background:var(--card); border-bottom:1px solid var(--border); padding:0 20px 16px; flex-direction:column; box-shadow:var(--shadow); }
+  .mobile-menu { display:none; position:absolute; top:100%; left:0; right:0; background:var(--card); border-bottom:1px solid var(--border); padding:0 20px 16px; flex-direction:column; }
   .mobile-menu.show { display:flex; } .mobile-menu a { padding:14px 0; border-bottom:1px solid var(--border); text-decoration:none; color:var(--text); font-weight:600; }
-
   .container { max-width:1100px; margin:0 auto; padding:0 20px; }
   .hero { display:grid; grid-template-columns:1.2fr 0.8fr; gap:40px; padding:60px 0; align-items:center; }
-  .avatar { width:140px; height:140px; border-radius:50%; border:3px solid var(--accent); object-fit:cover; }
+  .avatar-wrap { width:140px; height:140px; }
+  .avatar { width:140px; height:140px; border-radius:50%; border:3px solid var(--accent); object-fit:cover; display:block; background:var(--card); }
+  .avatar-fallback { width:140px; height:140px; border-radius:50%; border:3px solid var(--accent); background:linear-gradient(135deg, #111, #222); display:flex; align-items:center; justify-content:center; font-size:42px; font-weight:800; color:var(--accent); }
   h1 { font-size: clamp(32px,5vw,48px); line-height:1.1; margin:16px 0 8px; }
-  .subtitle { color:var(--accent); font-weight:800; min-height:28px; } /* Para efecto typing */
-  .tagline { color:var(--muted); margin:16px 0 24px; }
+  .subtitle { color:var(--accent); font-weight:800; min-height:28px; }
+  .tagline { color:var(--muted); margin:16px 0 24px; max-width:500px; }
   .metrics { display:flex; gap:24px; margin:24px 0; } .metric b { font-size:24px; display:block; } .metric span { font-size:11px; color:var(--muted); text-transform:uppercase; }
-  .btns { display:flex; gap:12px; flex-wrap:wrap; } .btn { padding:12px 22px; border-radius:10px; text-decoration:none; font-weight:700; font-size:14px; cursor:pointer; border:none; }
+  .btns { display:flex; gap:12px; flex-wrap:wrap; } .btn { padding:12px 22px; border-radius:10px; text-decoration:none; font-weight:700; font-size:14px; cursor:pointer; border:none; display:inline-block; }
   .btn-primary { background:var(--accent); color:#000; } .btn-ghost { background:var(--card); border:1px solid var(--border); color:var(--text); }
-
   section { padding:64px 0; border-top:1px solid var(--border); }
+  
+  /* HOVER PROYECTOS - RESTAURADO */
   .projects { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:20px; }
-  .project-card { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:22px; transition:.3s; }
-  .project-card:hover { transform:translateY(-4px); border-color:var(--accent); }
-  .exp { background:var(--card); border:1px solid var(--border); border-left:3px solid var(--accent); padding:18px; border-radius:12px; margin-bottom:14px; }
-  .skills { display:flex; flex-wrap:wrap; gap:8px; } .skill { background:var(--card); border:1px solid var(--border); padding:8px 14px; border-radius:20px; font-size:13px; }
+  .project-card { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:22px; transition: all 0.25s ease; cursor:pointer; position:relative; overflow:hidden; }
+  .project-card:hover { transform:translateY(-8px) scale(1.02); border-color:var(--accent); background:var(--card-hover); box-shadow: 0 12px 30px rgba(0,255,136,0.15), 0 0 0 1px var(--accent); }
+  .project-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--accent); transform:scaleX(0); transition: transform 0.25s ease; }
+  .project-card:hover::before { transform:scaleX(1); }
+  .project-tag { font-size:11px; background:var(--bg); border:1px solid var(--border); padding:4px 8px; border-radius:20px; color:var(--muted); display:inline-block; transition:.2s; }
+  .project-card:hover .project-tag { background:var(--accent); color:#000; border-color:var(--accent); }
+  .project-card h3 { margin:12px 0 8px; transition:.2s; } .project-card:hover h3 { color:var(--accent); }
 
-  /* === DÍA 3: FORMULARIO PRO === */
+  .exp { background:var(--card); border:1px solid var(--border); border-left:3px solid var(--accent); padding:18px; border-radius:12px; margin-bottom:14px; transition:.2s; }
+  .exp:hover { transform:translateX(4px); border-left-width:6px; }
+  .skills { display:flex; flex-wrap:wrap; gap:8px; } .skill { background:var(--card); border:1px solid var(--border); padding:8px 14px; border-radius:20px; font-size:13px; transition:.2s; } .skill:hover { background:var(--accent); color:#000; }
   .contact-form { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:24px; max-width:600px; margin:0 auto; }
-  .form-group { margin-bottom:16px; }
-  .form-group label { display:block; font-size:13px; font-weight:600; margin-bottom:6px; color:var(--muted); }
+  .form-group { margin-bottom:16px; } .form-group label { display:block; font-size:13px; font-weight:600; margin-bottom:6px; color:var(--muted); }
   .form-group input, .form-group textarea { width:100%; padding:12px 14px; border-radius:10px; border:1px solid var(--border); background:var(--bg); color:var(--text); font-family:inherit; font-size:14px; }
   .form-group input:focus, .form-group textarea:focus { outline:none; border-color:var(--accent); }
-  .form-status { margin-top:12px; font-size:13px; display:none; }
-
-  /* === DÍA 3: ANIMACIONES AL SCROLL === */
-  .reveal { opacity:0; transform:translateY(30px); transition: all 0.6s ease; } /* Estado inicial: invisible y abajo */
-  .reveal.active { opacity:1; transform:translateY(0); } /* Estado final: visible y en su lugar */
-
-  @media (max-width:768px) { .hero { grid-template-columns:1fr; padding:32px 0; } .nav-links { display:none; } .hamburger { display:block; } }
+  .reveal { opacity:0; transform:translateY(30px); transition: all 0.6s ease; } .reveal.active { opacity:1; transform:translateY(0); }
+  @media (max-width:768px) { .hero { grid-template-columns:1fr; padding:32px 0; } .nav-links { display:none; } .hamburger { display:block; } .project-card:hover { transform:translateY(-4px); } }
   footer { text-align:center; padding:40px 20px; color:var(--muted); font-size:13px; border-top:1px solid var(--border); }
   .float { position:fixed; bottom:20px; right:20px; background:var(--accent); color:#000; padding:12px 18px; border-radius:30px; text-decoration:none; font-weight:800; z-index:99; }
 </style>
@@ -61,92 +57,72 @@
 <div class="navbar">
   <div class="nav-inner">
     <b>EPG</b>
-    <div class="nav-links">
-      <a href="#inicio">Inicio</a>
-      <a href="#proyectos">Proyectos</a>
-      <a href="#experiencia">Experiencia</a>
-      <a href="#contacto">Contacto</a>
-    </div>
-    <div class="nav-right">
-      <button class="hamburger" id="btnMenu">☰</button>
-      <button onclick="document.body.classList.toggle('light')" style="background:var(--card);border:1px solid var(--border);padding:6px 12px;border-radius:20px;cursor:pointer;">🌙</button>
-    </div>
+    <div class="nav-links"><a href="#inicio">Inicio</a><a href="#proyectos">Proyectos</a><a href="#experiencia">Experiencia</a><a href="#contacto">Contacto</a></div>
+    <div class="nav-right"><button class="hamburger" id="btnMenu">☰</button><button onclick="document.body.classList.toggle('light')" style="background:var(--card);border:1px solid var(--border);padding:6px 12px;border-radius:20px;cursor:pointer;">🌙</button></div>
   </div>
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#inicio">🏠 Inicio</a>
-    <a href="#proyectos">🚀 Proyectos</a>
-    <a href="#experiencia">💼 Experiencia</a>
-    <a href="#contacto">✉️ Contacto</a>
-  </div>
+  <div class="mobile-menu" id="mobileMenu"><a href="#inicio">🏠 Inicio</a><a href="#proyectos">🚀 Proyectos</a><a href="#experiencia">💼 Experiencia</a><a href="#contacto">✉️ Contacto</a></div>
 </div>
 
 <div class="container">
   <div class="hero" id="inicio">
     <div>
-      <img src="https://github.com/edwin839.png" class="avatar" alt="Edwin">
+      <!-- FOTO FIX DEFINITIVO - 3 niveles -->
+      <div class="avatar-wrap" id="avatarWrap">
+        <img id="avatarImg" class="avatar" alt="Edwin Piña" src="foto.jpg">
+      </div>
+
       <h1>Edwin Piña<br>García</h1>
-      <!-- EFECTO TYPING -->
-      <div class="subtitle" id="typing"></div>
-      <p class="tagline">20+ años liderando infraestructura TI. Ahora construyo productos web que resuelven problemas reales de negocio.</p>
-      <div class="metrics"><div class="metric"><b>20+</b><span>Años</span></div><div class="metric"><b>100+</b><span>Equipos</span></div><div class="metric"><b>24/7</b><span>Operación</span></div></div>
-      <div class="btns"><a href="#contacto" class="btn btn-primary">Trabajemos juntos</a><a href="https://github.com/edwin839" target="_blank" class="btn btn-ghost">Ver GitHub</a></div>
+      <div class="subtitle" id="typing">20 años en TI → Creador</div>
+      <p class="tagline">20+ años liderando infraestructura TI. Ahora construyo productos web que resuelven problemas reales.</p>
+      <div class="metrics"><div class="metric"><b>20+</b><span>AÑOS</span></div><div class="metric"><b>100+</b><span>EQUIPOS</span></div><div class="metric"><b>24/7</b><span>OPERACIÓN</span></div></div>
+      <div class="btns"><a href="#contacto" class="btn btn-primary" id="btnContacto">Trabajemos juntos</a><a href="https://github.com/edwin839" target="_blank" class="btn btn-ghost">Ver GitHub</a></div>
     </div>
     <div style="background:var(--card); border:1px solid var(--border); border-radius:16px; padding:20px;">
-      <b>Día 3 - Nivel Pro</b><p style="color:var(--muted);font-size:14px;margin-top:8px;">Hoy tu página ya recibe mensajes reales y tiene animaciones de agencia.</p>
+      <b>V5.3 - Todo arreglado</b><p style="color:var(--muted);font-size:14px;margin-top:8px;">✅ Foto blindada<br>✅ Hover proyectos que se levanta y brilla<br>✅ Botón contacto que navega</p>
     </div>
   </div>
 
-  <section id="proyectos" class="reveal">
-    <h2>Proyectos destacados</h2>
-    <div class="projects">
-      <div class="project-card"><span style="font-size:11px; background:var(--bg); border:1px solid var(--border); padding:4px 8px; border-radius:20px; color:var(--muted);">Infraestructura</span><h3 style="margin:12px 0 8px;">Migración Red - Merka</h3><p style="color:var(--muted);font-size:14px;">Rediseño y hardening. Downtime -80%.</p></div>
-      <div class="project-card"><span style="font-size:11px; background:var(--bg); border:1px solid var(--border); padding:4px 8px; border-radius:20px; color:var(--muted);">IoT</span><h3 style="margin:12px 0 8px;">CCTV IP + Acceso</h3><p style="color:var(--muted);font-size:14px;">32 cámaras IP y control biométrico 24/7.</p></div>
-      <div class="project-card"><span style="font-size:11px; background:var(--bg); border:1px solid var(--border); padding:4px 8px; border-radius:20px; color:var(--muted);">Web</span><h3 style="margin:12px 0 8px;">Portafolio V5 Día 3</h3><p style="color:var(--muted);font-size:14px;">Con formulario real y animaciones scroll.</p></div>
-    </div>
-  </section>
+  <section id="proyectos" class="reveal"><h2>Proyectos destacados</h2><div class="projects">
+    <div class="project-card"><span class="project-tag">Infraestructura</span><h3>Migración Red - Merka</h3><p style="color:var(--muted);font-size:14px;margin-top:8px;">Rediseño total y hardening. Downtime -80%.</p><div style="margin-top:12px; font-size:11px; color:var(--accent);">→ Ver detalle</div></div>
+    <div class="project-card"><span class="project-tag">IoT</span><h3>CCTV IP + Acceso</h3><p style="color:var(--muted);font-size:14px;margin-top:8px;">32 cámaras IP y control biométrico 24/7.</p><div style="margin-top:12px; font-size:11px; color:var(--accent);">→ Ver detalle</div></div>
+    <div class="project-card"><span class="project-tag">Web</span><h3>Portafolio V5 Día 3</h3><p style="color:var(--muted);font-size:14px;margin-top:8px;">Con formulario real y animaciones.</p><div style="margin-top:12px; font-size:11px; color:var(--accent);">→ Ver código</div></div>
+  </div></section>
 
-  <section id="experiencia" class="reveal"><h2>Experiencia</h2><div class="exp"><h3>Gerente de Sistemas - Merka</h3><div style="color:var(--accent);font-size:13px;">2019 - Actualidad</div><p style="color:var(--muted);font-size:14px;margin-top:8px;">Infraestructura, redes, seguridad y transformación digital.</p></div></section>
+  <section id="experiencia" class="reveal"><h2>Experiencia</h2><div class="exp"><h3>Gerente de Sistemas - Merka</h3><div style="color:var(--accent);font-size:13px;">2019 - Actualidad</div><p style="color:var(--muted);font-size:14px;margin-top:8px;">Infraestructura, redes, seguridad.</p></div></section>
 
-  <!-- DÍA 3: SECCIÓN CONTACTO QUE SÍ FUNCIONA -->
-  <section id="contacto" class="reveal">
-    <h2>Contacto - Hablemos</h2>
-    <p style="color:var(--muted); text-align:center; margin-bottom:24px; max-width:600px; margin-left:auto; margin-right:auto;">¿Tienes un proyecto? Este formulario me llega directo a mi correo. Te respondo en menos de 24h.</p>
-    
-    <!-- 
-      TRUCO PRO: formsubmit.co
-      1. Cambia edwin839@gmail.com por TU correo real
-      2. La primera vez te llegará un correo para confirmar, le das confirmar
-      3. ¡Ya funciona sin backend!
-    -->
-    <form class="contact-form" action="https://formsubmit.co/kingkraker@hotmail.com" method="POST">
-      <!-- Configuración oculta -->
-      <input type="hidden" name="_subject" value="¡Nuevo mensaje desde tu portafolio!">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://edwin839.github.io/fullstack-cero-a-100/gracias.html">
-
-      <div class="form-group">
-        <label>Tu nombre</label>
-        <input type="text" name="name" placeholder="Ej: Juan Pérez" required>
-      </div>
-      <div class="form-group">
-        <label>Tu correo</label>
-        <input type="email" name="email" placeholder="juan@empresa.com" required>
-      </div>
-      <div class="form-group">
-        <label>Mensaje</label>
-        <textarea name="message" rows="4" placeholder="Cuéntame de tu proyecto..." required></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary" style="width:100%;">Enviar mensaje 🚀</button>
-      <div class="form-status" id="formStatus">¡Mensaje enviado! Te respondo pronto.</div>
-    </form>
-  </section>
+  <section id="contacto" class="reveal"><h2>Contacto</h2><form class="contact-form" action="https://formsubmit.co/edwin839@gmail.com" method="POST"><input type="hidden" name="_subject" value="Nuevo mensaje portafolio"><input type="hidden" name="_captcha" value="false"><div class="form-group"><label>Tu nombre</label><input type="text" name="name" required></div><div class="form-group"><label>Tu correo</label><input type="email" name="email" required></div><div class="form-group"><label>Mensaje</label><textarea name="message" rows="4" required></textarea></div><button type="submit" class="btn btn-primary" style="width:100%;">Enviar mensaje 🚀</button></form></section>
 </div>
 
-<footer>Hecho con 💚 Día 3 - Edwin Piña García • Zapopan</footer>
-<a href="#contacto" class="float">✉️ Contacto</a>
+<footer>Hecho con 💚 V5.3 - Foto + Hover</footer>
+<a href="#contacto" class="float" id="floatContacto">✉️ Contacto</a>
 
 <script>
-  // === MENU MOVIL (ya lo dominas) ===
+  // === FOTO BLINDADA - 3 INTENTOS ===
+  const avatarImg = document.getElementById('avatarImg');
+  const avatarWrap = document.getElementById('avatarWrap');
+  let intento = 0;
+  const fuentes = [
+    'foto.jpg', // 1. Tu foto local
+    'https://github.com/edwin839.png', // 2. GitHub (funciona 100%)
+    'https://avatars.githubusercontent.com/u/1?v=4' // 3. Fallback final
+  ];
+  
+  function showFallbackEPG() {
+    avatarWrap.innerHTML = '<div class="avatar-fallback">EPG</div>';
+  }
+
+  avatarImg.onerror = function() {
+    intento++;
+    if (intento < fuentes.length) {
+      console.log('Foto falló, intentando:', fuentes[intento]);
+      this.src = fuentes[intento];
+    } else {
+      showFallbackEPG();
+    }
+  };
+  // Si la primera carga ya es foto.jpg y no existe, dispara onerror y pasa a github
+
+  // MENU
   const btnMenu = document.getElementById('btnMenu');
   const mobileMenu = document.getElementById('mobileMenu');
   btnMenu.addEventListener('click', () => {
@@ -154,45 +130,36 @@
     btnMenu.textContent = mobileMenu.classList.contains('show') ? '✕' : '☰';
   });
   document.querySelectorAll('#mobileMenu a').forEach(link => {
-    link.addEventListener('click', () => {
-      mobileMenu.classList.remove('show');
-      btnMenu.textContent = '☰';
-    });
+    link.addEventListener('click', () => { mobileMenu.classList.remove('show'); btnMenu.textContent = '☰'; });
   });
 
-  // === DÍA 3 NUEVO 1: EFECTO TYPING (máquina de escribir) ===
-  const textos = ["Gerente de Sistemas → Full Stack", "20 años en TI → Creador Web", "Infraestructura → Productos"];
-  let iTexto = 0; let iLetra = 0; let borrando = false;
-  const elTyping = document.getElementById('typing');
+  // SCROLL CONTACTO
+  function scrollToContacto(e) { e.preventDefault(); document.getElementById('contacto').scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  document.getElementById('btnContacto').addEventListener('click', scrollToContacto);
+  document.getElementById('floatContacto').addEventListener('click', scrollToContacto);
 
+  // TYPING
+  const textos = ["20 años en TI → Creador", "Gerente → Full Stack", "Infraestructura → Productos"];
+  let iTexto = 0, iLetra = 0, borrando = false;
+  const elTyping = document.getElementById('typing');
   function typeEffect() {
     const actual = textos[iTexto];
     if (!borrando) {
-      elTyping.textContent = actual.substring(0, iLetra + 1);
-      iLetra++;
+      elTyping.textContent = actual.substring(0, iLetra + 1); iLetra++;
       if (iLetra === actual.length) { borrando = true; setTimeout(typeEffect, 1500); return; }
     } else {
-      elTyping.textContent = actual.substring(0, iLetra - 1);
-      iLetra--;
+      elTyping.textContent = actual.substring(0, iLetra - 1); iLetra--;
       if (iLetra === 0) { borrando = false; iTexto = (iTexto + 1) % textos.length; }
     }
     setTimeout(typeEffect, borrando ? 50 : 100);
   }
-  typeEffect(); // prende la máquina
+  typeEffect();
 
-  // === DÍA 3 NUEVO 2: ANIMACIONES AL HACER SCROLL ===
-  // IntersectionObserver = "avisa cuando algo entra en pantalla"
+  // REVEAL
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('active'); // si entra en pantalla, le pone clase active (que lo hace visible)
-      }
-    });
-  }, { threshold: 0.15 }); // 15% visible ya dispara animación
-
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+  }, { threshold: 0.15 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-  console.log("Día 3 - Formulario + Typing + Scroll Reveal activados");
 </script>
 </body>
 </html>
