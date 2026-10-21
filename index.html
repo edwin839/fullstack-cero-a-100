@@ -3,101 +3,58 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Edwin Piña García - Gerente TI → Full Stack Developer</title>
-
-<!-- OPEN GRAPH: Para que se vea PRO en WhatsApp / LinkedIn -->
-<meta property="og:title" content="Edwin Piña García - Full Stack Developer">
-<meta property="og:description" content="20+ años en infraestructura TI. Ahora construyendo productos web de cero a cien.">
-<meta property="og:image" content="foto.jpg">
-<meta property="og:type" content="website">
-
+<title>Edwin Piña García - Full Stack</title>
 <style>
-  /* === 1. CAJITAS DE COLORES === */
-  :root {
-    --bg:#0a0a0a; --card:#111; --card-hover:#1a1a1a;
-    --text:#e5e5e5; --muted:#888; --accent:#00ff88;
-    --border:#222; --shadow:0 10px 30px rgba(0,0,0,0.5);
-  }
-  .light {
-    --bg:#f7f7f8; --card:#fff; --card-hover:#f1f1f1;
-    --text:#111; --muted:#666; --border:#e5e5e5;
-    --shadow:0 10px 30px rgba(0,0,0,0.08);
-  }
-
+  :root { --bg:#0a0a0a; --card:#111; --card-hover:#1a1a1a; --text:#e5e5e5; --muted:#888; --accent:#00ff88; --border:#222; --shadow:0 10px 30px rgba(0,0,0,0.5); }
+  .light { --bg:#f7f7f8; --card:#fff; --card-hover:#f1f1f1; --text:#111; --muted:#666; --border:#e5e5e5; --shadow:0 10px 30px rgba(0,0,0,0.08); }
   * { margin:0; padding:0; box-sizing:border-box; }
-  html { scroll-behavior:smooth; } /* Scroll suave al dar click en navbar */
-  body { font-family: 'Segoe UI', Inter, sans-serif; background:var(--bg); color:var(--text); line-height:1.6; transition: background .3s, color .3s; }
+  html { scroll-behavior:smooth; }
+  body { font-family:'Segoe UI',sans-serif; background:var(--bg); color:var(--text); line-height:1.6; transition:.3s; }
 
-  /* === 2. NAVBAR PRO - PEGADA ARRIBA === */
-  .navbar {
-    position:sticky; top:0; z-index:100; /* Se queda pegada */
-    backdrop-filter: blur(12px); /* Efecto cristal */
-    background: color-mix(in srgb, var(--bg) 85%, transparent);
-    border-bottom:1px solid var(--border);
-    padding:14px 0;
-  }
+  .navbar { position:sticky; top:0; z-index:100; backdrop-filter:blur(12px); background:color-mix(in srgb, var(--bg) 90%, transparent); border-bottom:1px solid var(--border); padding:14px 0; }
   .nav-inner { max-width:1100px; margin:0 auto; padding:0 20px; display:flex; justify-content:space-between; align-items:center; }
-  .nav-links { display:flex; gap:20px; }
-  .nav-links a { text-decoration:none; color:var(--muted); font-size:14px; font-weight:600; }
-  .nav-links a:hover { color:var(--accent); }
+  .nav-links { display:flex; gap:22px; }
+  .nav-links a { text-decoration:none; color:var(--muted); font-weight:600; font-size:14px; }
+  .nav-links a:hover, .nav-links a.active { color:var(--accent); }
+  .nav-right { display:flex; gap:10px; align-items:center; }
+  .hamburger { display:none; background:var(--card); border:1px solid var(--border); padding:8px 12px; border-radius:10px; font-size:20px; cursor:pointer; }
+
+  .mobile-menu { display:none; position:absolute; top:100%; left:0; right:0; background:var(--card); border-bottom:1px solid var(--border); padding:0 20px 16px; flex-direction:column; box-shadow:var(--shadow); }
+  .mobile-menu.show { display:flex; }
+  .mobile-menu a { padding:14px 0; border-bottom:1px solid var(--border); text-decoration:none; color:var(--text); font-weight:600; }
+  .mobile-menu a:active { color:var(--accent); background:var(--card-hover); }
 
   .container { max-width:1100px; margin:0 auto; padding:0 20px; }
-
-  /* === 3. HERO CON METRICAS === */
-  .hero { display:grid; grid-template-columns: 1.2fr 0.8fr; gap:40px; align-items:center; padding:60px 0; }
+  .hero { display:grid; grid-template-columns:1.2fr 0.8fr; gap:40px; padding:60px 0; align-items:center; }
   .avatar { width:140px; height:140px; border-radius:50%; border:3px solid var(--accent); object-fit:cover; }
-  h1 { font-size: clamp(32px, 5vw, 48px); line-height:1.1; margin:16px 0 8px; }
-  .subtitle { color:var(--accent); font-weight:800; font-size:18px; }
-  .tagline { color:var(--muted); margin:16px 0 24px; max-width:500px; }
-
-  /* Métricas pro */
+  h1 { font-size: clamp(32px,5vw,48px); line-height:1.1; margin:16px 0 8px; }
+  .subtitle { color:var(--accent); font-weight:800; }
+  .tagline { color:var(--muted); margin:16px 0 24px; }
   .metrics { display:flex; gap:24px; margin:24px 0; }
-  .metric b { font-size:24px; display:block; color:var(--text); }
-  .metric span { font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; }
-
+  .metric b { font-size:24px; display:block; } .metric span { font-size:11px; color:var(--muted); text-transform:uppercase; }
   .btns { display:flex; gap:12px; flex-wrap:wrap; }
-  .btn { padding:12px 22px; border-radius:10px; text-decoration:none; font-weight:700; font-size:14px; transition: all .2s; }
+  .btn { padding:12px 22px; border-radius:10px; text-decoration:none; font-weight:700; font-size:14px; }
   .btn-primary { background:var(--accent); color:#000; }
-  .btn-primary:hover { transform:translateY(-2px); box-shadow: var(--shadow); }
   .btn-ghost { background:var(--card); border:1px solid var(--border); color:var(--text); }
-
-  /* Tarjeta de disponibilidad */
-  .card-side { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:20px; }
-  .status-dot { width:8px; height:8px; background:var(--accent); border-radius:50%; display:inline-block; animation: pulse 2s infinite; }
-  @keyframes pulse { 0%{opacity:1} 50%{opacity:.4} 100%{opacity:1} }
-
-  /* === 4. SECCIONES === */
   section { padding:64px 0; border-top:1px solid var(--border); }
-  section h2 { font-size:24px; margin-bottom:24px; }
-
-  /* === 5. PROYECTOS - ESTO TE HACE PRO === */
-  .projects { display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:20px; }
-  .project-card { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:22px; transition: all .2s; }
-  .project-card:hover { background:var(--card-hover); transform:translateY(-4px); box-shadow:var(--shadow); border-color:var(--accent); }
-  .project-card .tag { font-size:11px; background:var(--bg); border:1px solid var(--border); padding:4px 8px; border-radius:20px; color:var(--muted); }
-  .project-card h3 { margin:12px 0 8px; }
-  .project-card p { color:var(--muted); font-size:14px; }
-
+  .projects { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:20px; }
+  .project-card { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:22px; transition:.2s; }
   .exp { background:var(--card); border:1px solid var(--border); border-left:3px solid var(--accent); padding:18px; border-radius:12px; margin-bottom:14px; }
+  .skills { display:flex; flex-wrap:wrap; gap:8px; } .skill { background:var(--card); border:1px solid var(--border); padding:8px 14px; border-radius:20px; font-size:13px; }
 
-  .skills { display:flex; flex-wrap:wrap; gap:8px; }
-  .skill { background:var(--card); border:1px solid var(--border); padding:8px 14px; border-radius:20px; font-size:13px; }
-
-  /* === 6. RESPONSIVE === */
   @media (max-width:768px) {
-    .hero { grid-template-columns:1fr; padding:32px 0; } /* En celular una sola columna */
-    .nav-links { display:none; } /* Oculto links en celular para simpleza */
-    .metrics { gap:16px; }
+    .hero { grid-template-columns:1fr; padding:32px 0; }
+    .nav-links { display:none; }
+    .hamburger { display:block; }
+    .navbar { position:relative; } /* para que el menú absoluto se posicione bien */
   }
-
   footer { text-align:center; padding:40px 20px; color:var(--muted); font-size:13px; border-top:1px solid var(--border); }
-  .float { position:fixed; bottom:20px; right:20px; background:var(--accent); color:#000; padding:12px 18px; border-radius:30px; text-decoration:none; font-weight:800; box-shadow:var(--shadow); z-index:99; }
+  .float { position:fixed; bottom:20px; right:20px; background:var(--accent); color:#000; padding:12px 18px; border-radius:30px; text-decoration:none; font-weight:800; z-index:99; }
 </style>
 </head>
 <body>
 
-<!-- NAVBAR -->
-<div class="navbar">
+<div class="navbar" style="position:sticky;">
   <div class="nav-inner">
     <b>EPG</b>
     <div class="nav-links">
@@ -106,106 +63,68 @@
       <a href="#experiencia">Experiencia</a>
       <a href="#stack">Stack</a>
     </div>
-    <button onclick="document.body.classList.toggle('light')" style="background:var(--card);border:1px solid var(--border);padding:6px 12px;border-radius:20px;cursor:pointer;">🌙 / ☀️</button>
+    <div class="nav-right">
+      <button class="hamburger" id="btnMenu">☰</button>
+      <button onclick="document.body.classList.toggle('light')" style="background:var(--card);border:1px solid var(--border);padding:6px 12px;border-radius:20px;cursor:pointer;">🌙</button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#inicio">🏠 Inicio</a>
+    <a href="#proyectos">🚀 Proyectos</a>
+    <a href="#experiencia">💼 Experiencia</a>
+    <a href="#stack">🛠️ Stack</a>
   </div>
 </div>
 
 <div class="container">
-
-  <!-- HERO -->
   <div class="hero" id="inicio">
     <div>
-      <img src="foto.jpg" alt="Edwin" class="avatar" onerror="this.style.display='none'">
+      <img src="foto.jpg" class="avatar" onerror="this.style.display='none'">
       <h1>Edwin Piña<br>García</h1>
-      <div class="subtitle">Gerente de Sistemas → Full Stack Developer</div>
-      <p class="tagline">20+ años liderando infraestructura TI. Ahora construyo productos web que resuelven problemas reales de negocio. Disponible para proyectos.</p>
-      
-      <!-- MÉTRICAS -->
-      <div class="metrics">
-        <div class="metric"><b>20+</b><span>Años TI</span></div>
-        <div class="metric"><b>100+</b><span>Equipos</span></div>
-        <div class="metric"><b>24/7</b><span>Operación</span></div>
-      </div>
-
-      <div class="btns">
-        <a href="https://github.com/edwin839" target="_blank" class="btn btn-primary">Ver GitHub</a>
-        <a href="mailto:kingkraker@hotmail.com?subject=Vi tu portafolio" class="btn btn-ghost">✉️ Contáctame</a>
-      </div>
+      <div class="subtitle">Gerente de Sistemas → Full Stack</div>
+      <p class="tagline">20+ años en TI. Ahora construyendo productos web reales.</p>
+      <div class="metrics"><div class="metric"><b>20+</b><span>Años</span></div><div class="metric"><b>100+</b><span>Equipos</span></div><div class="metric"><b>24/7</b><span>Operación</span></div></div>
+      <div class="btns"><a href="https://github.com/edwin839" target="_blank" class="btn btn-primary">Ver GitHub</a><a href="mailto:kingkraker@hotmail.com" class="btn btn-ghost">✉️ Contacto</a></div>
     </div>
-
-    <!-- Tarjeta lateral -->
-    <div class="card-side">
-      <div><span class="status-dot"></span> <small>Disponible para proyectos</small></div>
-      <h3 style="margin:16px 0 8px;">¿Qué hago ahora?</h3>
-      <p style="color:var(--muted); font-size:14px; margin-bottom:16px;">Transformo experiencia en infraestructura en productos web rápidos, seguros y escalables.</p>
-      <div class="skills">
-        <span class="skill">Infraestructura</span>
-        <span class="skill">Redes</span>
-        <span class="skill">CCTV/IP</span>
-        <span class="skill">Full Stack</span>
-      </div>
-    </div>
+    <div style="background:var(--card); border:1px solid var(--border); border-radius:16px; padding:20px;"><b>Disponible</b><p style="color:var(--muted);font-size:14px;margin-top:8px;">Transformo infra en productos web rápidos y seguros.</p></div>
   </div>
 
-  <!-- PROYECTOS -->
-  <section id="proyectos">
-    <h2>Proyectos destacados</h2>
-    <div class="projects">
-      <!-- Proyecto 1 -->
-      <div class="project-card">
-        <span class="tag">Infraestructura</span> <span class="tag">Seguridad</span>
-        <h3>Migración y Hardening de Red Corporativa - Merka</h3>
-        <p>Rediseño total de red, migración de servidores y políticas de seguridad. Reducción de downtime 80%. Documentación completa.</p>
-        <div style="margin-top:12px; font-size:12px; color:var(--muted);">Stack: Fortinet • VLANs • Windows Server • Backup</div>
-      </div>
-      <!-- Proyecto 2 -->
-      <div class="project-card">
-        <span class="tag">IoT</span> <span class="tag">Videovigilancia</span>
-        <h3>Sistema CCTV IP + Control de Acceso</h3>
-        <p>Implementación de 32 cámaras IP, NVR, control de acceso biométrico y monitoreo remoto 24/7.</p>
-        <div style="margin-top:12px; font-size:12px; color:var(--muted);">Stack: Hikvision • PoE • VPN • Monitoreo</div>
-      </div>
-      <!-- Proyecto 3 -->
-      <div class="project-card">
-        <span class="tag">Web</span> <span class="tag">Full Stack</span>
-        <h3>Portafolio Web Full Stack (Este sitio)</h3>
-        <p>De cero a deploy. Responsive, dark mode, GitHub Pages. Código abierto en GitHub.</p>
-        <div style="margin-top:12px;"><a href="https://github.com/edwin839/fullstack-cero-a-100" style="color:var(--accent); text-decoration:none; font-weight:700; font-size:13px;">Ver código →</a></div>
-      </div>
-    </div>
-  </section>
+  <section id="proyectos"><h2>Proyectos destacados</h2><div class="projects">
+    <div class="project-card"><h3>Migración Red - Merka</h3><p style="color:var(--muted);font-size:14px;">Rediseño y hardening. Downtime -80%.</p></div>
+    <div class="project-card"><h3>CCTV IP + Acceso</h3><p style="color:var(--muted);font-size:14px;">32 cámaras IP y control biométrico 24/7.</p></div>
+    <div class="project-card"><h3>Portafolio Full Stack</h3><p style="color:var(--muted);font-size:14px;">Este sitio. De cero a deploy. <a href="https://github.com/edwin839/fullstack-cero-a-100" style="color:var(--accent);">Código →</a></p></div>
+  </div></section>
 
-  <!-- EXPERIENCIA -->
-  <section id="experiencia">
-    <h2>Experiencia</h2>
-    <div class="exp">
-      <h3>Gerente de Sistemas - Merka Comercializadora</h3>
-      <div style="color:var(--accent); font-size:13px;">2019 - Actualidad • Zapopan, Jal.</div>
-      <p style="margin-top:8px; color:var(--muted); font-size:14px;">Lidero toda la infraestructura TI: servidores, red, seguridad, soporte y proyectos de transformación digital.</p>
-    </div>
-    <div class="exp">
-      <h3>Full Stack Developer (En formación intensiva)</h3>
-      <div style="color:var(--accent); font-size:13px;">2026 - Ruta Cero a Cien</div>
-      <p style="margin-top:8px; color:var(--muted); font-size:14px;">HTML, CSS, JS, Git, GitHub Pages. Enfocado en productos reales.</p>
-    </div>
-  </section>
-
-  <!-- STACK -->
-  <section id="stack">
-    <h2>Stack actual</h2>
-    <div class="skills">
-      <span class="skill">HTML5</span><span class="skill">CSS3</span><span class="skill">JavaScript</span><span class="skill">Git & GitHub</span><span class="skill">Responsive</span><span class="skill">GitHub Pages</span><span class="skill">Infraestructura</span><span class="skill">Redes</span>
-    </div>
-  </section>
-
+  <section id="experiencia"><h2>Experiencia</h2><div class="exp"><h3>Gerente de Sistemas - Merka</h3><div style="color:var(--accent);font-size:13px;">2019 - Actualidad</div><p style="color:var(--muted);font-size:14px;margin-top:8px;">Infraestructura, redes y seguridad.</p></div></section>
+  <section id="stack"><h2>Stack</h2><div class="skills"><span class="skill">HTML5</span><span class="skill">CSS3</span><span class="skill">JavaScript</span><span class="skill">Git</span></div></section>
 </div>
 
-<footer>
-  Hecho con 💚 por Edwin Piña García • Zapopan, México • <a href="https://github.com/edwin839" style="color:var(--accent);">GitHub</a> • <a href="mailto:kingkraker@hotmil.com" style="color:var(--accent);">Email</a>
-  <div style="margin-top:8px;">Ruta Full Stack Cero a Cien - Día 2 → V4 Pro</div>
-</footer>
+<footer>Hecho por Edwin • Zapopan</footer>
+<a href="mailto:kingkraker@hotmail.com" class="float">✉️</a>
 
-<a href="mailto:kingkraker@hotmail.com" class="float">✉️ Contacto</a>
+<script>
+  // === ESTO ES LO QUE ARREGLA EL MENU EN CELULAR ===
+  const btnMenu = document.getElementById('btnMenu');
+  const mobileMenu = document.getElementById('mobileMenu');
 
+  // Al dar click en ☰, prende/apaga menú (igual que la luz)
+  btnMenu.addEventListener('click', () => {
+    mobileMenu.classList.toggle('show');
+    // Cambia el icono de ☰ a X
+    btnMenu.textContent = mobileMenu.classList.contains('show') ? '✕' : '☰';
+  });
+
+  // Cuando tocas una opción del menú móvil:
+  // 1. Cierra el menú
+  // 2. Te lleva a la sección
+  document.querySelectorAll('#mobileMenu a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('show'); // apaga el menú
+      btnMenu.textContent = '☰'; // regresa a ☰
+    });
+  });
+
+  console.log("V4.2 - Menú móvil arreglado");
+</script>
 </body>
 </html>
