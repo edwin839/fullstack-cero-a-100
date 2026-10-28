@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Edwin Piña García - Full Stack | Día 5</title>
+<title>Edwin Piña García - Día 6 Cotizador</title>
 <style>
   :root { --bg:#0a0a0a; --card:#111; --card-hover:#1a1a1a; --text:#e5e5e5; --muted:#888; --accent:#00ff88; --border:#222; }
   .light { --bg:#f7f7f8; --card:#fff; --card-hover:#f1f1f1; --text:#111; --muted:#666; --border:#e5e5e5; }
@@ -18,81 +18,79 @@
   .mobile-menu.show { display:flex; } .mobile-menu a { padding:14px 0; border-bottom:1px solid var(--border); text-decoration:none; color:var(--text); font-weight:600; }
   .container { max-width:1100px; margin:0 auto; padding:0 20px; }
   .hero { display:grid; grid-template-columns:1.2fr 0.8fr; gap:40px; padding:60px 0; align-items:center; }
-  .avatar-wrap { width:140px; height:140px; }
-  .avatar { width:140px; height:140px; border-radius:50%; border:3px solid var(--accent); object-fit:cover; display:block; background:var(--card); }
+  .avatar-wrap { width:140px; height:140px; } .avatar { width:140px; height:140px; border-radius:50%; border:3px solid var(--accent); object-fit:cover; display:block; background:var(--card); }
   .avatar-fallback { width:140px; height:140px; border-radius:50%; border:3px solid var(--accent); background:linear-gradient(135deg, #111, #222); display:flex; align-items:center; justify-content:center; font-size:42px; font-weight:800; color:var(--accent); }
-  h1 { font-size: clamp(32px,5vw,48px); line-height:1.1; margin:16px 0 8px; }
-  .subtitle { color:var(--accent); font-weight:800; min-height:28px; }
-  .tagline { color:var(--muted); margin:16px 0 24px; max-width:500px; }
+  h1 { font-size: clamp(32px,5vw,48px); line-height:1.1; margin:16px 0 8px; } .subtitle { color:var(--accent); font-weight:800; min-height:28px; } .tagline { color:var(--muted); margin:16px 0 24px; max-width:500px; }
   .metrics { display:flex; gap:24px; margin:24px 0; } .metric b { font-size:24px; display:block; } .metric span { font-size:11px; color:var(--muted); text-transform:uppercase; }
-  .btns { display:flex; gap:12px; flex-wrap:wrap; } .btn { padding:12px 22px; border-radius:10px; text-decoration:none; font-weight:700; font-size:14px; cursor:pointer; border:none; display:inline-block; }
-  .btn-primary { background:var(--accent); color:#000; } .btn-ghost { background:var(--card); border:1px solid var(--border); color:var(--text); }
+  .btns { display:flex; gap:12px; flex-wrap:wrap; } .btn { padding:12px 22px; border-radius:10px; text-decoration:none; font-weight:700; font-size:14px; cursor:pointer; border:none; display:inline-block; transition:.2s; }
+  .btn-primary { background:var(--accent); color:#000; } .btn-primary:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(0,255,136,0.3); } .btn-ghost { background:var(--card); border:1px solid var(--border); color:var(--text); }
   section { padding:64px 0; border-top:1px solid var(--border); }
   .projects { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:20px; }
   .project-card { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:22px; transition: all 0.25s ease; cursor:pointer; position:relative; overflow:hidden; }
   .project-card:hover { transform:translateY(-8px) scale(1.02); border-color:var(--accent); background:var(--card-hover); box-shadow: 0 12px 30px rgba(0,255,136,0.15), 0 0 0 1px var(--accent); }
-  .project-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--accent); transform:scaleX(0); transition: transform 0.25s ease; }
-  .project-card:hover::before { transform:scaleX(1); }
+  .project-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--accent); transform:scaleX(0); transition: transform 0.25s ease; } .project-card:hover::before { transform:scaleX(1); }
   .project-tag { font-size:11px; background:var(--bg); border:1px solid var(--border); padding:4px 8px; border-radius:20px; color:var(--muted); display:inline-block; transition:.2s; }
   .project-card:hover .project-tag { background:var(--accent); color:#000; border-color:var(--accent); }
   .project-card h3 { margin:12px 0 8px; transition:.2s; } .project-card:hover h3 { color:var(--accent); }
-  .exp { background:var(--card); border:1px solid var(--border); border-left:3px solid var(--accent); padding:18px; border-radius:12px; margin-bottom:14px; transition:.2s; }
-  .exp:hover { transform:translateX(4px); border-left-width:6px; }
-  .skills { display:flex; flex-wrap:wrap; gap:8px; } .skill { background:var(--card); border:1px solid var(--border); padding:8px 14px; border-radius:20px; font-size:13px; transition:.2s; } .skill:hover { background:var(--accent); color:#000; }
+  .exp { background:var(--card); border:1px solid var(--border); border-left:3px solid var(--accent); padding:18px; border-radius:12px; margin-bottom:14px; transition:.2s; } .exp:hover { transform:translateX(4px); border-left-width:6px; }
   .contact-form { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:24px; max-width:600px; margin:0 auto; }
   .form-group { margin-bottom:16px; } .form-group label { display:block; font-size:13px; font-weight:600; margin-bottom:6px; color:var(--muted); }
-  .form-group input, .form-group textarea { width:100%; padding:12px 14px; border-radius:10px; border:1px solid var(--border); background:var(--bg); color:var(--text); font-family:inherit; font-size:14px; }
-  .form-group input:focus, .form-group textarea:focus { outline:none; border-color:var(--accent); }
+  .form-group input, .form-group textarea, .form-group select { width:100%; padding:12px 14px; border-radius:10px; border:1px solid var(--border); background:var(--bg); color:var(--text); font-family:inherit; font-size:14px; }
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline:none; border-color:var(--accent); }
   .reveal { opacity:0; transform:translateY(30px); transition: all 0.6s ease; } .reveal.active { opacity:1; transform:translateY(0); }
   @media (max-width:768px) { .hero { grid-template-columns:1fr; padding:32px 0; } .nav-links { display:none; } .hamburger { display:block; } .project-card:hover { transform:translateY(-4px); } }
   footer { text-align:center; padding:40px 20px; color:var(--muted); font-size:13px; border-top:1px solid var(--border); }
   .float { position:fixed; bottom:20px; right:20px; background:var(--accent); color:#000; padding:12px 18px; border-radius:30px; text-decoration:none; font-weight:800; z-index:99; }
-
-  /* DÍA 5 NUEVO */
   .toast { position: fixed; bottom:20px; left:50%; transform:translateX(-50%) translateY(100px); background:var(--accent); color:#000; padding:12px 22px; border-radius:30px; font-weight:800; font-size:14px; opacity:0; transition: all 0.4s; z-index:9999; box-shadow:0 8px 20px rgba(0,0,0,0.3); }
   .toast.show { transform:translateX(-50%) translateY(0); opacity:1; }
-  .save-indicator { font-size:11px; color:var(--accent); opacity:0; transition:opacity 0.3s; margin-top:8px; text-align:center; font-weight:600; }
-  .save-indicator.show { opacity:1; }
-  #day-counter { text-align:center; background:var(--card); border:1px solid var(--accent); color:var(--accent); padding:8px 16px; border-radius:20px; font-weight:800; font-size:13px; margin-bottom:20px; display:inline-block; }
+  .save-indicator { font-size:11px; color:var(--accent); opacity:0; transition:opacity 0.3s; margin-top:8px; text-align:center; font-weight:600; } .save-indicator.show { opacity:1; }
+
+  /* COTIZADOR DÍA 6 */
+  .cotizador-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:24px; }
+  @media (max-width:900px) { .cotizador-grid { grid-template-columns:1fr; } }
+  .cotizador-card { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:24px; }
+  .cotizador-card.destacado { border-color:var(--accent); background:linear-gradient(135deg, var(--card) 0%, color-mix(in srgb, var(--accent) 5%, var(--card)) 100%); }
+  .precio-grande { font-size: clamp(32px, 6vw, 48px); font-weight:900; color:var(--accent); line-height:1; margin:12px 0; }
+  .desglose { margin:20px 0; border-top:1px solid var(--border); padding-top:16px; }
+  .desglose-row { display:flex; justify-content:space-between; padding:8px 0; font-size:14px; border-bottom:1px dashed var(--border); }
+  .desglose-row.total { font-weight:800; font-size:16px; color:var(--text); border-bottom:none; border-top:2px solid var(--accent); margin-top:8px; padding-top:12px; }
+  .badge { background:var(--accent); color:#000; font-size:11px; font-weight:800; padding:4px 10px; border-radius:20px; display:inline-block; margin-bottom:8px; }
+  .range-label { display:flex; justify-content:space-between; font-size:12px; color:var(--muted); margin-bottom:6px; }
+  input[type=range] { width:100%; accent-color:var(--accent); height:6px; }
+  .check { display:flex; align-items:center; gap:8px; margin:10px 0; font-size:14px; cursor:pointer; }
+  .check input { width:18px; height:18px; accent-color:var(--accent); }
 </style>
 </head>
-
 <body>
 
 <div class="navbar">
   <div class="nav-inner">
     <b>EPG</b>
-    <div class="nav-links"><a href="#inicio">Inicio</a><a href="#proyectos">Proyectos</a><a href="#experiencia">Experiencia</a><a href="#contacto">Contacto</a></div>
-    <div class="nav-right">
-      <button class="hamburger" id="btnMenu">☰</button>
-      <button id="themeToggle" style="background:var(--card);border:1px solid var(--border);padding:6px 12px;border-radius:20px;cursor:pointer;color:var(--text);">🌙</button>
-    </div>
+    <div class="nav-links"><a href="#inicio">Inicio</a><a href="#proyectos">Proyectos</a><a href="#cotizador">Cotizador</a><a href="#experiencia">Experiencia</a><a href="#contacto">Contacto</a></div>
+    <div class="nav-right"><button class="hamburger" id="btnMenu">☰</button><button id="themeToggle" style="background:var(--card);border:1px solid var(--border);padding:6px 12px;border-radius:20px;cursor:pointer;color:var(--text);">🌙</button></div>
   </div>
-  <div class="mobile-menu" id="mobileMenu"><a href="#inicio">🏠 Inicio</a><a href="#proyectos">🚀 Proyectos</a><a href="#experiencia">💼 Experiencia</a><a href="#contacto">✉️ Contacto</a></div>
+  <div class="mobile-menu" id="mobileMenu"><a href="#inicio">🏠 Inicio</a><a href="#proyectos">🚀 Proyectos</a><a href="#cotizador">💰 Cotizador</a><a href="#experiencia">💼 Experiencia</a><a href="#contacto">✉️ Contacto</a></div>
 </div>
 
 <div class="container">
   <div class="hero" id="inicio">
     <div>
-      <div class="avatar-wrap" id="avatarWrap">
-        <img id="avatarImg" class="avatar" alt="Edwin Piña" src="foto.jpg">
-      </div>
-
+      <div class="avatar-wrap" id="avatarWrap"><img id="avatarImg" class="avatar" alt="Edwin Piña" src="foto.jpg"></div>
       <h1>Edwin Piña<br>García</h1>
       <div class="subtitle" id="typing">20 años en TI → Creador</div>
       <p class="tagline">20+ años liderando infraestructura TI. Ahora construyo productos web que resuelven problemas reales.</p>
-      <div id="day-counter">Día 5 / 100 - Ruta Cero a Cien</div>
+      <div id="day-counter" style="background:var(--card); border:1px solid var(--accent); color:var(--accent); padding:8px 16px; border-radius:20px; font-weight:800; font-size:13px; margin-bottom:20px; display:inline-block;">Día 6 / 100 - Ruta Cero a Cien</div>
       <div class="metrics"><div class="metric"><b>20+</b><span>AÑOS</span></div><div class="metric"><b>100+</b><span>EQUIPOS</span></div><div class="metric"><b>24/7</b><span>OPERACIÓN</span></div></div>
-      <div class="btns"><a href="#contacto" class="btn btn-primary" id="btnContacto">Trabajemos juntos</a><a href="https://github.com/edwin839" target="_blank" class="btn btn-ghost">Ver GitHub</a></div>
+      <div class="btns"><a href="#cotizador" class="btn btn-primary" id="btnCotizador">Probar Cotizador Día 6 →</a><a href="https://github.com/edwin839" target="_blank" class="btn btn-ghost">Ver GitHub</a></div>
     </div>
     <div style="background:var(--card); border:1px solid var(--border); border-radius:16px; padding:20px;">
-      <b>V6.0 - Día 5 JavaScript PRO</b>
+      <b>V7.0 - Día 6 Cotizador CCTV</b>
       <p style="color:var(--muted);font-size:14px;margin-top:8px;">
-        ✅ Foto blindada<br>
-        ✅ Hover proyectos PRO<br>
-        ✅ Tema que se recuerda<br>
-        ✅ Form que guarda borrador<br>
-        ✅ Contador automático
+        ✅ $700 x cámara instalada<br>
+        ✅ Cálculo en vivo<br>
+        ✅ Guarda cotizaciones<br>
+        ✅ Lista para Merka<br>
+        ✅ Imprimir para cliente
       </p>
     </div>
   </div>
@@ -100,15 +98,85 @@
   <section id="proyectos" class="reveal"><h2>Proyectos destacados</h2><div class="projects">
     <div class="project-card"><span class="project-tag">Infraestructura</span><h3>Migración Red - Merka</h3><p style="color:var(--muted);font-size:14px;margin-top:8px;">Rediseño total y hardening. Downtime -80%.</p><div style="margin-top:12px; font-size:11px; color:var(--accent);">→ Ver detalle</div></div>
     <div class="project-card"><span class="project-tag">IoT</span><h3>CCTV IP + Acceso</h3><p style="color:var(--muted);font-size:14px;margin-top:8px;">32 cámaras IP y control biométrico 24/7.</p><div style="margin-top:12px; font-size:11px; color:var(--accent);">→ Ver detalle</div></div>
-    <div class="project-card"><span class="project-tag">Web</span><h3>Portafolio V6 Día 5</h3><p style="color:var(--muted);font-size:14px;margin-top:8px;">Con LocalStorage, toast y auto-save.</p><div style="margin-top:12px; font-size:11px; color:var(--accent);">→ Ver código</div></div>
+    <div class="project-card" style="border-color:var(--accent);"><span class="project-tag" style="background:var(--accent); color:#000;">NUEVO DÍA 6</span><h3>Cotizador CCTV Merka</h3><p style="color:var(--muted);font-size:14px;margin-top:8px;">$700 x cámara instalada. Calcula al instante.</p><div style="margin-top:12px; font-size:11px; color:var(--accent);">→ Ver código</div></div>
   </div></section>
 
-  <section id="experiencia" class="reveal"><h2>Experiencia</h2><div class="exp"><h3>Gerente de Sistemas - Merka</h3><div style="color:var(--accent);font-size:13px;">2019 - Actualidad</div><p style="color:var(--muted);font-size:14px;margin-top:8px;">Infraestructura, redes, seguridad.</p></div></section>
+  <!-- ================= DÍA 6 COTIZADOR ================= -->
+  <section id="cotizador" class="reveal">
+    <div style="text-align:center; margin-bottom:24px;">
+      <span class="badge">DÍA 6 - JAVASCRIPT NEGOCIO</span>
+      <h2 style="font-size: clamp(28px, 4vw, 40px); margin:8px 0;">Cotizador CCTV Merka</h2>
+      <p style="color:var(--muted); max-width:600px; margin:0 auto;">La herramienta que usas en Merka, ahora en tu portafolio. $700 por cámara instalada. Cálculo al instante.</p>
+    </div>
+
+    <div class="cotizador-grid">
+      <!-- LADO IZQUIERDO - CONTROLES -->
+      <div class="cotizador-card">
+        <h3 style="margin-bottom:16px;">⚙️ Configuración</h3>
+        
+        <div class="form-group">
+          <div class="range-label"><label>📹 Número de cámaras</label><b id="labelCamaras" style="color:var(--accent);">4 cámaras</b></div>
+          <input type="range" id="inputCamaras" min="1" max="32" value="4">
+          <div class="range-label"><span>1</span><span>32</span></div>
+        </div>
+
+        <div class="form-group">
+          <label>Tipo de cámara</label>
+          <select id="inputTipo">
+            <option value="bala">Bala - Exterior (incluida en $700)</option>
+            <option value="domo">Domo - Interior (incluida en $700)</option>
+            <option value="mixto">Mixto Bala/Domo</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Nombre del cliente (para guardar)</label>
+          <input type="text" id="inputCliente" placeholder="Ej: Abarrotes Don José">
+        </div>
+
+        <div class="check"><input type="checkbox" id="checkInstalacion" checked><label for="checkInstalacion">Instalación incluida (estándar 15m por cámara)</label></div>
+        <div class="check"><input type="checkbox" id="checkIVA"><label for="checkIVA">Agregar IVA 16%</label></div>
+        <div class="check"><input type="checkbox" id="checkGarantia" checked><label for="checkGarantia">Garantía 1 año incluida</label></div>
+
+        <div style="margin-top:20px; display:flex; gap:10px; flex-wrap:wrap;">
+          <button class="btn btn-primary" id="btnGuardarCot" style="flex:1;">💾 Guardar</button>
+          <button class="btn btn-ghost" id="btnImprimir" style="flex:1;">🖨️ Imprimir</button>
+        </div>
+        <div class="save-indicator" id="saveCotIndicator">✓ Cotización guardada en memoria</div>
+        <div style="margin-top:16px; font-size:12px; color:var(--muted);">Historial guardado: <span id="historialCount">0</span> cotizaciones | <a href="#" id="btnVerHistorial" style="color:var(--accent);">ver historial</a></div>
+      </div>
+
+      <!-- LADO DERECHO - RESULTADO -->
+      <div class="cotizador-card destacado">
+        <div class="badge">COTIZACIÓN INSTANTÁNEA</div>
+        <div style="font-size:13px; color:var(--muted);">Cliente: <b id="resCliente" style="color:var(--text);">Público general</b></div>
+        <div class="precio-grande" id="resTotal">$2,800</div>
+        <div style="font-size:13px; color:var(--muted);"><span id="resNum">4</span> cámaras x $700 instaladas</div>
+
+        <div class="desglose">
+          <div class="desglose-row"><span>📹 <span id="dCamaras">4</span> cámaras @ $700</span><b id="dPrecioCamaras">$2,800</b></div>
+          <div class="desglose-row"><span>🔧 Instalación + cable 15m</span><b style="color:var(--accent);">Incluida</b></div>
+          <div class="desglose-row"><span>🛡️ Garantía 1 año</span><b style="color:var(--accent);">Incluida</b></div>
+          <div class="desglose-row" id="rowIVA" style="display:none;"><span>💰 IVA 16%</span><b id="dIVA">$0</b></div>
+          <div class="desglose-row total"><span>TOTAL</span><b id="dTotalFinal">$2,800 MXN</b></div>
+        </div>
+
+        <div style="background:var(--bg); border:1px dashed var(--border); border-radius:12px; padding:12px; font-size:12px; color:var(--muted); margin-top:16px;">
+          <b style="color:var(--text);">Incluye:</b> Cámara HD 1080p, fuente, conectores, 15m cable UTP por cámara, configuración y prueba. <br>
+          <span style="color:var(--accent);">* Precio Merka válido Zapopan. No incluye NVR/DVR si ya tiene. Para 8+ cámaras descuento en NVR.</span>
+        </div>
+
+        <div id="historialBox" style="display:none; margin-top:20px; background:var(--bg); border:1px solid var(--border); border-radius:12px; padding:12px; max-height:200px; overflow-y:auto;"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experiencia" class="reveal"><h2>Experiencia</h2><div class="exp"><h3>Gerente de Sistemas - Merka</h3><div style="color:var(--accent);font-size:13px;">2019 - Actualidad</div><p style="color:var(--muted);font-size:14px;margin-top:8px;">Infraestructura, redes, seguridad. Ahora desarrollando herramientas web para ventas.</p></div></section>
 
   <section id="contacto" class="reveal">
     <h2>Contacto</h2>
     <form class="contact-form" id="contactForm" action="https://formsubmit.co/kingkraker@hotmail.com" method="POST">
-      <input type="hidden" name="_subject" value="Nuevo mensaje portafolio Día 5">
+      <input type="hidden" name="_subject" value="Nuevo mensaje portafolio Día 6">
       <input type="hidden" name="_captcha" value="false">
       <div class="form-group"><label>Tu nombre</label><input type="text" name="name" required></div>
       <div class="form-group"><label>Tu correo</label><input type="email" name="email" required></div>
@@ -119,7 +187,7 @@
   </section>
 </div>
 
-<footer>Hecho con 💚 V6.0 - Día 5 - LocalStorage | <span id="footer-day"></span></footer>
+<footer>Hecho con 💚 V7.0 - Día 6 Cotizador | <span id="footer-day"></span></footer>
 <a href="#contacto" class="float" id="floatContacto">✉️ Contacto</a>
 <div class="toast" id="toast"></div>
 
@@ -130,128 +198,158 @@
   let intento = 0;
   const fuentes = ['foto.jpg', 'https://github.com/edwin839.png', 'https://avatars.githubusercontent.com/u/1?v=4'];
   function showFallbackEPG() { avatarWrap.innerHTML = '<div class="avatar-fallback">EPG</div>'; }
-  avatarImg.onerror = function() {
-    intento++;
-    if (intento < fuentes.length) { this.src = fuentes[intento]; } else { showFallbackEPG(); }
-  };
+  avatarImg.onerror = function() { intento++; if (intento < fuentes.length) { this.src = fuentes[intento]; } else { showFallbackEPG(); } };
 
   // === MENU ===
   const btnMenu = document.getElementById('btnMenu');
   const mobileMenu = document.getElementById('mobileMenu');
-  btnMenu.addEventListener('click', () => {
-    mobileMenu.classList.toggle('show');
-    btnMenu.textContent = mobileMenu.classList.contains('show') ? '✕' : '☰';
-  });
-  document.querySelectorAll('#mobileMenu a').forEach(link => {
-    link.addEventListener('click', () => { mobileMenu.classList.remove('show'); btnMenu.textContent = '☰'; });
-  });
+  btnMenu.addEventListener('click', () => { mobileMenu.classList.toggle('show'); btnMenu.textContent = mobileMenu.classList.contains('show') ? '✕' : '☰'; });
+  document.querySelectorAll('#mobileMenu a').forEach(link => { link.addEventListener('click', () => { mobileMenu.classList.remove('show'); btnMenu.textContent = '☰'; }); });
 
-  // === SCROLL CONTACTO ===
-  function scrollToContacto(e) { e.preventDefault(); document.getElementById('contacto').scrollIntoView({ behavior: 'smooth', block: 'start' }); }
-  document.getElementById('btnContacto').addEventListener('click', scrollToContacto);
-  document.getElementById('floatContacto').addEventListener('click', scrollToContacto);
+  // === SCROLL ===
+  function scrollToId(id){ return (e)=>{ e.preventDefault(); document.getElementById(id).scrollIntoView({behavior:'smooth', block:'start'});} }
+  document.getElementById('btnCotizador')?.addEventListener('click', scrollToId('cotizador'));
+  document.getElementById('floatContacto').addEventListener('click', scrollToId('contacto'));
 
   // === TYPING ===
   const textos = ["20 años en TI → Creador", "Gerente → Full Stack", "Infraestructura → Productos"];
   let iTexto = 0, iLetra = 0, borrando = false;
   const elTyping = document.getElementById('typing');
-  function typeEffect() {
-    const actual = textos[iTexto];
-    if (!borrando) {
-      elTyping.textContent = actual.substring(0, iLetra + 1); iLetra++;
-      if (iLetra === actual.length) { borrando = true; setTimeout(typeEffect, 1500); return; }
-    } else {
-      elTyping.textContent = actual.substring(0, iLetra - 1); iLetra--;
-      if (iLetra === 0) { borrando = false; iTexto = (iTexto + 1) % textos.length; }
-    }
-    setTimeout(typeEffect, borrando ? 50 : 100);
-  }
+  function typeEffect() { const actual = textos[iTexto]; if (!borrando) { elTyping.textContent = actual.substring(0, iLetra + 1); iLetra++; if (iLetra === actual.length) { borrando = true; setTimeout(typeEffect, 1500); return; } } else { elTyping.textContent = actual.substring(0, iLetra - 1); iLetra--; if (iLetra === 0) { borrando = false; iTexto = (iTexto + 1) % textos.length; } } setTimeout(typeEffect, borrando ? 50 : 100); }
   typeEffect();
 
   // === REVEAL ===
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
-  }, { threshold: 0.15 });
+  const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); }); }, { threshold: 0.15 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  // ============================================
-  // DÍA 5 - NUEVO: LocalStorage y funciones PRO
-  // ============================================
-
-  // 1. TOAST FUNCTION
+  // === DÍA 5: TOAST + TEMA + FORM ===
   const toastEl = document.getElementById('toast');
-  function showToast(msg) {
-    toastEl.textContent = msg;
-    toastEl.classList.add('show');
-    setTimeout(() => toastEl.classList.remove('show'), 3000);
-  }
-
-  // 2. TEMA QUE SE RECUERDA (LocalStorage)
+  function showToast(msg){ toastEl.textContent=msg; toastEl.classList.add('show'); setTimeout(()=>toastEl.classList.remove('show'),3000); }
   const themeToggle = document.getElementById('themeToggle');
-  const savedTheme = localStorage.getItem('edwin-theme'); // 'light' o null
-  
-  // Si había un tema guardado, aplicarlo
-  if (savedTheme === 'light') {
-    document.body.classList.add('light');
-    themeToggle.textContent = '☀️';
-  }
-
-  themeToggle.addEventListener('click', () => {
-    const isLight = document.body.classList.toggle('light');
-    const newTheme = isLight ? 'light' : 'dark';
-    localStorage.setItem('edwin-theme', newTheme);
-    themeToggle.textContent = isLight ? '☀️' : '🌙';
-    showToast(`Modo ${isLight ? 'claro' : 'oscuro'} guardado ✓`);
-  });
-
-  // 3. FORMULARIO QUE GUARDA BORRADOR
+  const savedTheme = localStorage.getItem('edwin-theme');
+  if (savedTheme === 'light') { document.body.classList.add('light'); themeToggle.textContent = '☀️'; }
+  themeToggle.addEventListener('click', () => { const isLight = document.body.classList.toggle('light'); const newTheme = isLight ? 'light' : 'dark'; localStorage.setItem('edwin-theme', newTheme); themeToggle.textContent = isLight ? '☀️' : '🌙'; showToast(`Modo ${isLight ? 'claro' : 'oscuro'} guardado ✓`); });
   const form = document.getElementById('contactForm');
   const inputs = form.querySelectorAll('input[name], textarea[name]');
   const saveIndicator = document.getElementById('saveIndicator');
+  inputs.forEach(input => { const saved = localStorage.getItem(`edwin-form-${input.name}`); if (saved) input.value = saved; });
+  inputs.forEach(input => { input.addEventListener('input', () => { localStorage.setItem(`edwin-form-${input.name}`, input.value); saveIndicator.classList.add('show'); setTimeout(() => saveIndicator.classList.remove('show'), 1200); }); });
+  form.addEventListener('submit', () => { inputs.forEach(input => { localStorage.removeItem(`edwin-form-${input.name}`); }); });
+  function updateDayCounter(){ const start = new Date('2026-10-20'); const today = new Date(); const diff = Math.floor((today - start) / (1000*60*60*24)) + 1; if (diff>0){ document.getElementById('day-counter').textContent=`Día ${diff} / 100 - Ruta Cero a Cien`; document.getElementById('footer-day').textContent=`Día ${diff} Activo`; } } updateDayCounter();
+  console.log('%c👋 ¡Hola, reclutador curioso!', 'color:#00ff88; font-size:22px; font-weight:bold;'); window.edwin={ info:()=>({nombre:'Edwin Piña García', rol:'Gerente Sistemas → Full Stack', ubicacion:'Zapopan, Jalisco', dia:'Día 6/100', cotizador:'$700 por cámara instalada', stack:['HTML','CSS','JS','LocalStorage','Funciones'], github:'https://github.com/edwin839'}), cotizar:(n)=>n*700 }; console.log('Tip: escribe edwin.info() o edwin.cotizar(8)');
 
-  // Cargar borradores al inicio
-  inputs.forEach(input => {
-    const saved = localStorage.getItem(`edwin-form-${input.name}`);
-    if (saved) input.value = saved;
-  });
+  // =====================================================
+  // DÍA 6 - LÓGICA COTIZADOR (comentado línea por línea)
+  // =====================================================
 
-  // Guardar cada vez que escribe
-  inputs.forEach(input => {
-    input.addEventListener('input', () => {
-      localStorage.setItem(`edwin-form-${input.name}`, input.value);
-      saveIndicator.classList.add('show');
-      setTimeout(() => saveIndicator.classList.remove('show'), 1200);
-    });
-  });
+  // 1. AGARRAR LOS ELEMENTOS DEL DOM (como buscar herramientas en tu bodega)
+  const inputCamaras = document.getElementById('inputCamaras'); // el slider de 1-32
+  const labelCamaras = document.getElementById('labelCamaras'); // el texto "4 cámaras"
+  const inputTipo = document.getElementById('inputTipo'); // bala/domo
+  const inputCliente = document.getElementById('inputCliente'); // nombre cliente
+  const checkIVA = document.getElementById('checkIVA'); // checkbox IVA
+  const checkGarantia = document.getElementById('checkGarantia'); // no lo usamos en precio pero lo guardamos
+  const checkInstalacion = document.getElementById('checkInstalacion');
 
-  // Al enviar, borrar borradores
-  form.addEventListener('submit', () => {
-    inputs.forEach(input => {
-      localStorage.removeItem(`edwin-form-${input.name}`);
-    });
-  });
+  // Elementos donde MOSTRAMOS el resultado
+  const resTotal = document.getElementById('resTotal');
+  const resNum = document.getElementById('resNum');
+  const resCliente = document.getElementById('resCliente');
+  const dCamaras = document.getElementById('dCamaras');
+  const dPrecioCamaras = document.getElementById('dPrecioCamaras');
+  const rowIVA = document.getElementById('rowIVA');
+  const dIVA = document.getElementById('dIVA');
+  const dTotalFinal = document.getElementById('dTotalFinal');
 
-  // 4. CONTADOR AUTOMÁTICO DE DÍAS
-  function updateDayCounter() {
-    const start = new Date('2026-10-20'); // Tu Día 1 real
-    const today = new Date();
-    const diff = Math.floor((today - start) / (1000*60*60*24)) + 1;
-    if (diff > 0) {
-      document.getElementById('day-counter').textContent = `Día ${diff} / 100 - Ruta Cero a Cien`;
-      document.getElementById('footer-day').textContent = `Día ${diff} Activo`;
+  // 2. FUNCIÓN PRINCIPAL - LA RECETA (esto es lo nuevo de Día 6)
+  function calcularCotizacion() {
+    // a) LEER los ingredientes que puso el usuario
+    const numCamaras = parseInt(inputCamaras.value); // convierte texto "4" a número 4
+    const precioPorCamara = 700; // tu precio de Merka, fijo
+    const conIVA = checkIVA.checked; // true si está palomeado, false si no
+    const cliente = inputCliente.value.trim() || 'Público general'; // si no escribe nada, usa default
+
+    // b) HACER LA MATEMÁTICA (lógica de negocio)
+    const subtotal = numCamaras * precioPorCamara; // 4 * 700 = 2800
+    let iva = 0;
+    if (conIVA) { // si conIVA es true
+      iva = subtotal * 0.16; // 16% de IVA
     }
-  }
-  updateDayCounter();
+    const total = subtotal + iva; // total final
 
-  // 5. CONSOLA PARA RECLUTADORES CURIOSOS
-  console.log('%c👋 ¡Hola, reclutador curioso!', 'color:#00ff88; font-size:22px; font-weight:bold;');
-  console.log('%cSoy Edwin, Gerente TI 20+ años → Full Stack Dev', 'color:#aaa; font-size:14px;');
-  console.log('%cDía 5: LocalStorage, Eventos, DOM - Ruta Cero a Cien', 'color:#00ff88;');
-  window.edwin = {
-    info: () => ({ nombre:'Edwin Piña García', rol:'Gerente Sistemas → Full Stack', ubicacion:'Zapopan, Jalisco', dia:'Día 5/100', stack:['HTML','CSS','JS','LocalStorage','GitHub'], contacto:'edwin839@gmail.com', github:'https://github.com/edwin839' }),
-    ayuda: 'Escribe edwin.info() 😉'
-  };
-  console.log('Tip: escribe edwin.info() aquí 👇');
+    // c) MOSTRAR en pantalla (actualizar el DOM)
+    labelCamaras.textContent = `${numCamaras} ${numCamaras===1?'cámara':'cámaras'}`; // cambia label del slider
+    resNum.textContent = numCamaras; // número en el resultado grande
+    dCamaras.textContent = numCamaras; // número en el desglose
+    resCliente.textContent = cliente; // nombre cliente
+    
+    // Formatear a pesos mexicanos: $2,800
+    const formatoPesos = (n) => `$${n.toLocaleString('es-MX')}`;
+    resTotal.textContent = formatoPesos(total);
+    dPrecioCamaras.textContent = formatoPesos(subtotal);
+    dTotalFinal.textContent = `${formatoPesos(total)} MXN`;
+
+    if (conIVA) {
+      rowIVA.style.display = 'flex'; // muestra la fila de IVA
+      dIVA.textContent = formatoPesos(iva);
+    } else {
+      rowIVA.style.display = 'none'; // oculta la fila de IVA
+    }
+
+    // d) REGRESAR el objeto para guardarlo después
+    return { numCamaras, precioPorCamara, subtotal, iva, total, cliente, tipo: inputTipo.value, fecha: new Date().toLocaleDateString() };
+  }
+
+  // 3. ESCUCHAR CAMBIOS (en cuanto mueve algo, recalcula)
+  // Esto es como poner sensores en tu bodega: si alguien mueve una caja, suena alarma
+  inputCamaras.addEventListener('input', calcularCotizacion); // cada que mueve el slider
+  inputTipo.addEventListener('change', calcularCotizacion); // cambia tipo
+  inputCliente.addEventListener('input', calcularCotizacion); // escribe cliente
+  checkIVA.addEventListener('change', calcularCotizacion); // palomea IVA
+
+  // 4. GUARDAR COTIZACIÓN EN LocalStorage (tu bodega de memoria)
+  const btnGuardarCot = document.getElementById('btnGuardarCot');
+  const saveCotIndicator = document.getElementById('saveCotIndicator');
+  const historialCount = document.getElementById('historialCount');
+  const historialBox = document.getElementById('historialBox');
+
+  function actualizarContadorHistorial(){
+    const historial = JSON.parse(localStorage.getItem('edwin-cotizaciones') || '[]');
+    historialCount.textContent = historial.length;
+    return historial;
+  }
+
+  btnGuardarCot.addEventListener('click', () => {
+    const cotActual = calcularCotizacion(); // calcula lo de ahora
+    let historial = JSON.parse(localStorage.getItem('edwin-cotizaciones') || '[]'); // baja historial o array vacío
+    historial.unshift(cotActual); // agrega al inicio
+    if (historial.length > 20) historial = historial.slice(0,20); // solo guarda últimas 20
+    localStorage.setItem('edwin-cotizaciones', JSON.stringify(historial)); // guarda de nuevo
+    actualizarContadorHistorial();
+    saveCotIndicator.classList.add('show');
+    setTimeout(()=>saveCotIndicator.classList.remove('show'),2000);
+    showToast(`Cotización para ${cotActual.cliente} guardada ✓ $${cotActual.total.toLocaleString()}`);
+  });
+
+  // Ver historial
+  document.getElementById('btnVerHistorial').addEventListener('click', (e)=>{
+    e.preventDefault();
+    const historial = actualizarContadorHistorial();
+    if (historial.length===0){ showToast('Aún no hay cotizaciones guardadas'); return; }
+    historialBox.style.display = historialBox.style.display==='none'?'block':'none';
+    historialBox.innerHTML = '<b>📋 Historial (últimas 20)</b><br><br>' + historial.map((c,i)=>`<div style="padding:6px 0; border-bottom:1px solid var(--border); font-size:13px;">${i+1}. ${c.cliente} - ${c.numCamaras}cám - <b style="color:var(--accent);">$${c.total.toLocaleString()}</b> <span style="color:var(--muted);">${c.fecha}</span></div>`).join('');
+  });
+
+  // Botón imprimir
+  document.getElementById('btnImprimir').addEventListener('click', ()=>{
+    const cot = calcularCotizacion();
+    const ventana = window.open('', '_blank');
+    ventana.document.write(`<html><head><title>Cotización ${cot.cliente}</title><style>body{font-family:sans-serif; padding:40px;} h1{color:#00aa55;} table{width:100%; border-collapse:collapse; margin-top:20px;} td,th{border:1px solid #ccc; padding:10px; text-align:left;} .total{font-weight:bold; background:#f0f0f0;}</style></head><body><h1>Merka Comercializadora - Cotización CCTV</h1><p><b>Cliente:</b> ${cot.cliente}<br><b>Fecha:</b> ${cot.fecha}<br><b>Cámaras:</b> ${cot.numCamaras} x $700 instaladas</p><table><tr><th>Concepto</th><th>Total</th></tr><tr><td>${cot.numCamaras} cámaras HD + Instalación + 15m cable + Garantía</td><td>$${cot.subtotal.toLocaleString()}</td></tr>${cot.iva>0?`<tr><td>IVA 16%</td><td>$${cot.iva.toLocaleString()}</td></tr>`:''}<tr class="total"><td>TOTAL</td><td>$${cot.total.toLocaleString()} MXN</td></tr></table><p style="margin-top:20px; font-size:12px; color:#666;">Precio válido 15 días. No incluye NVR si ya cuenta con equipo. Contacto: Edwin Piña García - Merka</p><script>window.print()<\/script></body></html>`);
+  });
+
+  // Inicializar
+  calcularCotizacion();
+  actualizarContadorHistorial();
 </script>
 </body>
 </html>
