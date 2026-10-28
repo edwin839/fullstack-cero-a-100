@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Edwin Piña García - Día 6 Cotizador</title>
+<title>Edwin Piña García - Día 6 Cotizador PRO</title>
 <style>
   :root { --bg:#0a0a0a; --card:#111; --card-hover:#1a1a1a; --text:#e5e5e5; --muted:#888; --accent:#00ff88; --border:#222; }
   .light { --bg:#f7f7f8; --card:#fff; --card-hover:#f1f1f1; --text:#111; --muted:#666; --border:#e5e5e5; }
@@ -45,11 +45,11 @@
   .toast.show { transform:translateX(-50%) translateY(0); opacity:1; }
   .save-indicator { font-size:11px; color:var(--accent); opacity:0; transition:opacity 0.3s; margin-top:8px; text-align:center; font-weight:600; } .save-indicator.show { opacity:1; }
 
-  /* COTIZADOR DÍA 6 */
+  /* COTIZADOR PRO */
   .cotizador-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:24px; }
   @media (max-width:900px) { .cotizador-grid { grid-template-columns:1fr; } }
   .cotizador-card { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:24px; }
-  .cotizador-card.destacado { border-color:var(--accent); background:linear-gradient(135deg, var(--card) 0%, color-mix(in srgb, var(--accent) 5%, var(--card)) 100%); }
+  .cotizador-card.destacado { border-color:var(--accent); background:linear-gradient(135deg, var(--card) 0%, color-mix(in srgb, var(--accent) 5%, var(--card)) 100%); position:sticky; top:80px; }
   .precio-grande { font-size: clamp(32px, 6vw, 48px); font-weight:900; color:var(--accent); line-height:1; margin:12px 0; }
   .desglose { margin:20px 0; border-top:1px solid var(--border); padding-top:16px; }
   .desglose-row { display:flex; justify-content:space-between; padding:8px 0; font-size:14px; border-bottom:1px dashed var(--border); }
@@ -57,8 +57,9 @@
   .badge { background:var(--accent); color:#000; font-size:11px; font-weight:800; padding:4px 10px; border-radius:20px; display:inline-block; margin-bottom:8px; }
   .range-label { display:flex; justify-content:space-between; font-size:12px; color:var(--muted); margin-bottom:6px; }
   input[type=range] { width:100%; accent-color:var(--accent); height:6px; }
-  .check { display:flex; align-items:center; gap:8px; margin:10px 0; font-size:14px; cursor:pointer; }
+  .check { display:flex; align-items:center; gap:8px; margin:10px 0; font-size:14px; cursor:pointer; background:var(--bg); padding:10px 12px; border-radius:10px; border:1px solid var(--border); }
   .check input { width:18px; height:18px; accent-color:var(--accent); }
+  .precios-ref { font-size:11px; color:var(--muted); background:var(--bg); border:1px solid var(--border); border-radius:10px; padding:12px; margin-top:16px; }
 </style>
 </head>
 <body>
@@ -81,102 +82,107 @@
       <p class="tagline">20+ años liderando infraestructura TI. Ahora construyo productos web que resuelven problemas reales.</p>
       <div id="day-counter" style="background:var(--card); border:1px solid var(--accent); color:var(--accent); padding:8px 16px; border-radius:20px; font-weight:800; font-size:13px; margin-bottom:20px; display:inline-block;">Día 6 / 100 - Ruta Cero a Cien</div>
       <div class="metrics"><div class="metric"><b>20+</b><span>AÑOS</span></div><div class="metric"><b>100+</b><span>EQUIPOS</span></div><div class="metric"><b>24/7</b><span>OPERACIÓN</span></div></div>
-      <div class="btns"><a href="#cotizador" class="btn btn-primary" id="btnCotizador">Probar Cotizador Día 6 →</a><a href="https://github.com/edwin839" target="_blank" class="btn btn-ghost">Ver GitHub</a></div>
+      <div class="btns"><a href="#cotizador" class="btn btn-primary" id="btnCotizador">Probar Cotizador PRO →</a><a href="https://github.com/edwin839" target="_blank" class="btn btn-ghost">Ver GitHub</a></div>
     </div>
     <div style="background:var(--card); border:1px solid var(--border); border-radius:16px; padding:20px;">
-      <b>V7.0 - Día 6 Cotizador CCTV</b>
+      <b>V7.1 - Día 6 Cotizador PRO</b>
       <p style="color:var(--muted);font-size:14px;margin-top:8px;">
-        ✅ $700 x cámara instalada<br>
-        ✅ Cálculo en vivo<br>
-        ✅ Guarda cotizaciones<br>
-        ✅ Lista para Merka<br>
-        ✅ Imprimir para cliente
+        ✅ Cámara $1,188<br>
+        ✅ NVR 8ch $3,500<br>
+        ✅ Disco 1TB $1,500<br>
+        ✅ Cable $19/m<br>
+        ✅ Instalación $700 x cámara<br>
+        ✅ +25% utilidad ya aplicada
       </p>
     </div>
   </div>
 
   <section id="proyectos" class="reveal"><h2>Proyectos destacados</h2><div class="projects">
-    <div class="project-card"><span class="project-tag">Infraestructura</span><h3>Migración Red - Merka</h3><p style="color:var(--muted);font-size:14px;margin-top:8px;">Rediseño total y hardening. Downtime -80%.</p><div style="margin-top:12px; font-size:11px; color:var(--accent);">→ Ver detalle</div></div>
-    <div class="project-card"><span class="project-tag">IoT</span><h3>CCTV IP + Acceso</h3><p style="color:var(--muted);font-size:14px;margin-top:8px;">32 cámaras IP y control biométrico 24/7.</p><div style="margin-top:12px; font-size:11px; color:var(--accent);">→ Ver detalle</div></div>
-    <div class="project-card" style="border-color:var(--accent);"><span class="project-tag" style="background:var(--accent); color:#000;">NUEVO DÍA 6</span><h3>Cotizador CCTV Merka</h3><p style="color:var(--muted);font-size:14px;margin-top:8px;">$700 x cámara instalada. Calcula al instante.</p><div style="margin-top:12px; font-size:11px; color:var(--accent);">→ Ver código</div></div>
+    <div class="project-card"><span class="project-tag">Infraestructura</span><h3>Migración Red - Merka</h3><p style="color:var(--muted);font-size:14px;margin-top:8px;">Rediseño total y hardening. Downtime -80%.</p></div>
+    <div class="project-card"><span class="project-tag">IoT</span><h3>CCTV IP + Acceso</h3><p style="color:var(--muted);font-size:14px;margin-top:8px;">32 cámaras IP y control biométrico 24/7.</p></div>
+    <div class="project-card" style="border-color:var(--accent);"><span class="project-tag" style="background:var(--accent); color:#000;">NUEVO DÍA 6 PRO</span><h3>Cotizador CCTV Merka PRO</h3><p style="color:var(--muted);font-size:14px;margin-top:8px;">Con NVR, Disco, Cable y mano de obra.</p></div>
   </div></section>
 
-  <!-- ================= DÍA 6 COTIZADOR ================= -->
+  <!-- COTIZADOR PRO -->
   <section id="cotizador" class="reveal">
     <div style="text-align:center; margin-bottom:24px;">
-      <span class="badge">DÍA 6 - JAVASCRIPT NEGOCIO</span>
-      <h2 style="font-size: clamp(28px, 4vw, 40px); margin:8px 0;">Cotizador CCTV Merka</h2>
-      <p style="color:var(--muted); max-width:600px; margin:0 auto;">La herramienta que usas en Merka, ahora en tu portafolio. $700 por cámara instalada. Cálculo al instante.</p>
+      <span class="badge">DÍA 6 - SISTEMA DE COTIZACIÓN REAL</span>
+      <h2 style="font-size: clamp(28px, 4vw, 40px); margin:8px 0;">Cotizador CCTV Merka PRO</h2>
+      <p style="color:var(--muted); max-width:700px; margin:0 auto;">Precios con 25% utilidad ya incluida. Listo para mandar a cliente de Zapopan. Incluye todo para instalación profesional.</p>
     </div>
 
     <div class="cotizador-grid">
-      <!-- LADO IZQUIERDO - CONTROLES -->
       <div class="cotizador-card">
-        <h3 style="margin-bottom:16px;">⚙️ Configuración</h3>
+        <h3 style="margin-bottom:16px;">⚙️ Configuración del Kit</h3>
         
         <div class="form-group">
-          <div class="range-label"><label>📹 Número de cámaras</label><b id="labelCamaras" style="color:var(--accent);">4 cámaras</b></div>
+          <div class="range-label"><label>📹 Número de cámaras HD 1080p</label><b id="labelCamaras" style="color:var(--accent);">4 cámaras</b></div>
           <input type="range" id="inputCamaras" min="1" max="32" value="4">
           <div class="range-label"><span>1</span><span>32</span></div>
         </div>
 
         <div class="form-group">
-          <label>Tipo de cámara</label>
-          <select id="inputTipo">
-            <option value="bala">Bala - Exterior (incluida en $700)</option>
-            <option value="domo">Domo - Interior (incluida en $700)</option>
-            <option value="mixto">Mixto Bala/Domo</option>
-          </select>
+          <div class="range-label"><label>🔌 Metros de cable UTP total</label><b id="labelCable" style="color:var(--accent);">60 m</b></div>
+          <input type="range" id="inputCable" min="0" max="500" value="60" step="5">
+          <div class="range-label"><span>0m</span><span>500m</span></div>
         </div>
 
         <div class="form-group">
-          <label>Nombre del cliente (para guardar)</label>
-          <input type="text" id="inputCliente" placeholder="Ej: Abarrotes Don José">
+          <label>Nombre del cliente</label>
+          <input type="text" id="inputCliente" placeholder="Ej: Abarrotes Don José - Bodega">
         </div>
 
-        <div class="check"><input type="checkbox" id="checkInstalacion" checked><label for="checkInstalacion">Instalación incluida (estándar 15m por cámara)</label></div>
-        <div class="check"><input type="checkbox" id="checkIVA"><label for="checkIVA">Agregar IVA 16%</label></div>
-        <div class="check"><input type="checkbox" id="checkGarantia" checked><label for="checkGarantia">Garantía 1 año incluida</label></div>
+        <div class="check"><input type="checkbox" id="checkNVR" checked><label for="checkNVR">📦 NVR 8 canales Hikvision/Dahua - $3,500</label></div>
+        <div class="check"><input type="checkbox" id="checkDisco" checked><label for="checkDisco">💾 Disco Duro 1TB Purple (24/7) - $1,500</label></div>
+        <div class="check"><input type="checkbox" id="checkInstalacion" checked><label for="checkInstalacion">🔧 Instalación profesional - $700 x cámara</label></div>
+        <div class="check"><input type="checkbox" id="checkIVA"><label for="checkIVA">💰 Agregar IVA 16%</label></div>
+
+        <div class="precios-ref">
+          <b>Precios base Merka +25%:</b><br>
+          Cámara $950 → $1,188 | NVR $2,800 → $3,500 | Disco $1,200 → $1,500 | Cable $15 → $19/m | Instalación $700/cam
+        </div>
 
         <div style="margin-top:20px; display:flex; gap:10px; flex-wrap:wrap;">
-          <button class="btn btn-primary" id="btnGuardarCot" style="flex:1;">💾 Guardar</button>
-          <button class="btn btn-ghost" id="btnImprimir" style="flex:1;">🖨️ Imprimir</button>
+          <button class="btn btn-primary" id="btnGuardarCot" style="flex:1;">💾 Guardar Cotización</button>
+          <button class="btn btn-ghost" id="btnImprimir" style="flex:1;">🖨️ Imprimir PDF</button>
         </div>
-        <div class="save-indicator" id="saveCotIndicator">✓ Cotización guardada en memoria</div>
-        <div style="margin-top:16px; font-size:12px; color:var(--muted);">Historial guardado: <span id="historialCount">0</span> cotizaciones | <a href="#" id="btnVerHistorial" style="color:var(--accent);">ver historial</a></div>
+        <div class="save-indicator" id="saveCotIndicator">✓ Guardada</div>
+        <div style="margin-top:12px; font-size:12px; color:var(--muted);">Guardadas: <span id="historialCount">0</span> | <a href="#" id="btnVerHistorial" style="color:var(--accent);">ver historial</a> | <a href="#" id="btnBorrarHistorial" style="color:#ff5555;">borrar todo</a></div>
       </div>
 
-      <!-- LADO DERECHO - RESULTADO -->
       <div class="cotizador-card destacado">
-        <div class="badge">COTIZACIÓN INSTANTÁNEA</div>
+        <div class="badge">COTIZACIÓN OFICIAL MERKA</div>
         <div style="font-size:13px; color:var(--muted);">Cliente: <b id="resCliente" style="color:var(--text);">Público general</b></div>
-        <div class="precio-grande" id="resTotal">$2,800</div>
-        <div style="font-size:13px; color:var(--muted);"><span id="resNum">4</span> cámaras x $700 instaladas</div>
+        <div class="precio-grande" id="resTotal">$12,752</div>
+        <div style="font-size:13px; color:var(--muted);"><span id="resNum">4</span> cámaras + kit completo + instalación</div>
 
         <div class="desglose">
-          <div class="desglose-row"><span>📹 <span id="dCamaras">4</span> cámaras @ $700</span><b id="dPrecioCamaras">$2,800</b></div>
-          <div class="desglose-row"><span>🔧 Instalación + cable 15m</span><b style="color:var(--accent);">Incluida</b></div>
-          <div class="desglose-row"><span>🛡️ Garantía 1 año</span><b style="color:var(--accent);">Incluida</b></div>
-          <div class="desglose-row" id="rowIVA" style="display:none;"><span>💰 IVA 16%</span><b id="dIVA">$0</b></div>
-          <div class="desglose-row total"><span>TOTAL</span><b id="dTotalFinal">$2,800 MXN</b></div>
+          <div class="desglose-row"><span>📹 <span id="dCamaras">4</span> x Cámara HD 1080p $1,188</span><b id="dPrecioCamaras">$4,752</b></div>
+          <div class="desglose-row" id="rowNVR"><span>📦 NVR 8ch $3,500</span><b id="dNVR">$3,500</b></div>
+          <div class="desglose-row" id="rowDisco"><span>💾 Disco 1TB $1,500</span><b id="dDisco">$1,500</b></div>
+          <div class="desglose-row"><span>🔌 <span id="dMetros">60</span>m Cable UTP $19/m</span><b id="dCable">$1,140</b></div>
+          <div class="desglose-row" id="rowInst"><span>🔧 <span id="dInstNum">4</span> x Instalación $700</span><b id="dInstalacion">$2,800</b></div>
+          <div class="desglose-row" id="rowSub"><span>Subtotal</span><b id="dSub">$13,692</b></div>
+          <div class="desglose-row" id="rowIVA" style="display:none;"><span>IVA 16%</span><b id="dIVA">$0</b></div>
+          <div class="desglose-row total"><span>TOTAL</span><b id="dTotalFinal">$13,692 MXN</b></div>
         </div>
 
         <div style="background:var(--bg); border:1px dashed var(--border); border-radius:12px; padding:12px; font-size:12px; color:var(--muted); margin-top:16px;">
-          <b style="color:var(--text);">Incluye:</b> Cámara HD 1080p, fuente, conectores, 15m cable UTP por cámara, configuración y prueba. <br>
-          <span style="color:var(--accent);">* Precio Merka válido Zapopan. No incluye NVR/DVR si ya tiene. Para 8+ cámaras descuento en NVR.</span>
+          <b style="color:var(--text);">Incluye:</b> Cámaras 1080p lente 3.6mm, fuentes 12V, conectores BNC/DC, NVR (si se selecciona), Disco (si se selecciona), cableado, canaleta básica, configuración móvil y garantía 1 año. <br><br>
+          <b style="color:var(--accent);">Merka Comercializadora - Zapopan, Jal. | Validez 15 días. Precios con utilidad 25% incluida.</b>
         </div>
 
-        <div id="historialBox" style="display:none; margin-top:20px; background:var(--bg); border:1px solid var(--border); border-radius:12px; padding:12px; max-height:200px; overflow-y:auto;"></div>
+        <div id="historialBox" style="display:none; margin-top:20px; background:var(--bg); border:1px solid var(--border); border-radius:12px; padding:12px; max-height:250px; overflow-y:auto;"></div>
       </div>
     </div>
   </section>
 
-  <section id="experiencia" class="reveal"><h2>Experiencia</h2><div class="exp"><h3>Gerente de Sistemas - Merka</h3><div style="color:var(--accent);font-size:13px;">2019 - Actualidad</div><p style="color:var(--muted);font-size:14px;margin-top:8px;">Infraestructura, redes, seguridad. Ahora desarrollando herramientas web para ventas.</p></div></section>
+  <section id="experiencia" class="reveal"><h2>Experiencia</h2><div class="exp"><h3>Gerente de Sistemas - Merka</h3><div style="color:var(--accent);font-size:13px;">2019 - Actualidad</div><p style="color:var(--muted);font-size:14px;margin-top:8px;">Infraestructura, redes, seguridad. Herramienta de cotización desarrollada para agilizar ventas CCTV.</p></div></section>
 
   <section id="contacto" class="reveal">
     <h2>Contacto</h2>
     <form class="contact-form" id="contactForm" action="https://formsubmit.co/kingkraker@hotmail.com" method="POST">
-      <input type="hidden" name="_subject" value="Nuevo mensaje portafolio Día 6">
+      <input type="hidden" name="_subject" value="Nuevo mensaje portafolio Día 6 PRO">
       <input type="hidden" name="_captcha" value="false">
       <div class="form-group"><label>Tu nombre</label><input type="text" name="name" required></div>
       <div class="form-group"><label>Tu correo</label><input type="email" name="email" required></div>
@@ -187,169 +193,121 @@
   </section>
 </div>
 
-<footer>Hecho con 💚 V7.0 - Día 6 Cotizador | <span id="footer-day"></span></footer>
+<footer>Hecho con 💚 V7.1 - Día 6 PRO | <span id="footer-day"></span></footer>
 <a href="#contacto" class="float" id="floatContacto">✉️ Contacto</a>
 <div class="toast" id="toast"></div>
 
 <script>
-  // === FOTO BLINDADA ===
-  const avatarImg = document.getElementById('avatarImg');
-  const avatarWrap = document.getElementById('avatarWrap');
-  let intento = 0;
-  const fuentes = ['foto.jpg', 'https://github.com/edwin839.png', 'https://avatars.githubusercontent.com/u/1?v=4'];
-  function showFallbackEPG() { avatarWrap.innerHTML = '<div class="avatar-fallback">EPG</div>'; }
-  avatarImg.onerror = function() { intento++; if (intento < fuentes.length) { this.src = fuentes[intento]; } else { showFallbackEPG(); } };
-
-  // === MENU ===
-  const btnMenu = document.getElementById('btnMenu');
-  const mobileMenu = document.getElementById('mobileMenu');
-  btnMenu.addEventListener('click', () => { mobileMenu.classList.toggle('show'); btnMenu.textContent = mobileMenu.classList.contains('show') ? '✕' : '☰'; });
-  document.querySelectorAll('#mobileMenu a').forEach(link => { link.addEventListener('click', () => { mobileMenu.classList.remove('show'); btnMenu.textContent = '☰'; }); });
-
-  // === SCROLL ===
-  function scrollToId(id){ return (e)=>{ e.preventDefault(); document.getElementById(id).scrollIntoView({behavior:'smooth', block:'start'});} }
-  document.getElementById('btnCotizador')?.addEventListener('click', scrollToId('cotizador'));
-  document.getElementById('floatContacto').addEventListener('click', scrollToId('contacto'));
-
-  // === TYPING ===
-  const textos = ["20 años en TI → Creador", "Gerente → Full Stack", "Infraestructura → Productos"];
-  let iTexto = 0, iLetra = 0, borrando = false;
-  const elTyping = document.getElementById('typing');
-  function typeEffect() { const actual = textos[iTexto]; if (!borrando) { elTyping.textContent = actual.substring(0, iLetra + 1); iLetra++; if (iLetra === actual.length) { borrando = true; setTimeout(typeEffect, 1500); return; } } else { elTyping.textContent = actual.substring(0, iLetra - 1); iLetra--; if (iLetra === 0) { borrando = false; iTexto = (iTexto + 1) % textos.length; } } setTimeout(typeEffect, borrando ? 50 : 100); }
-  typeEffect();
-
-  // === REVEAL ===
-  const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); }); }, { threshold: 0.15 });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-  // === DÍA 5: TOAST + TEMA + FORM ===
-  const toastEl = document.getElementById('toast');
-  function showToast(msg){ toastEl.textContent=msg; toastEl.classList.add('show'); setTimeout(()=>toastEl.classList.remove('show'),3000); }
-  const themeToggle = document.getElementById('themeToggle');
-  const savedTheme = localStorage.getItem('edwin-theme');
-  if (savedTheme === 'light') { document.body.classList.add('light'); themeToggle.textContent = '☀️'; }
-  themeToggle.addEventListener('click', () => { const isLight = document.body.classList.toggle('light'); const newTheme = isLight ? 'light' : 'dark'; localStorage.setItem('edwin-theme', newTheme); themeToggle.textContent = isLight ? '☀️' : '🌙'; showToast(`Modo ${isLight ? 'claro' : 'oscuro'} guardado ✓`); });
-  const form = document.getElementById('contactForm');
-  const inputs = form.querySelectorAll('input[name], textarea[name]');
-  const saveIndicator = document.getElementById('saveIndicator');
-  inputs.forEach(input => { const saved = localStorage.getItem(`edwin-form-${input.name}`); if (saved) input.value = saved; });
-  inputs.forEach(input => { input.addEventListener('input', () => { localStorage.setItem(`edwin-form-${input.name}`, input.value); saveIndicator.classList.add('show'); setTimeout(() => saveIndicator.classList.remove('show'), 1200); }); });
-  form.addEventListener('submit', () => { inputs.forEach(input => { localStorage.removeItem(`edwin-form-${input.name}`); }); });
+  // FOTO + MENU + TYPING + REVEAL (Días 1-5)
+  const avatarImg = document.getElementById('avatarImg'); const avatarWrap = document.getElementById('avatarWrap'); let intento = 0; const fuentes = ['foto.jpg', 'https://github.com/edwin839.png', 'https://avatars.githubusercontent.com/u/1?v=4']; function showFallbackEPG() { avatarWrap.innerHTML = '<div class="avatar-fallback">EPG</div>'; } avatarImg.onerror = function() { intento++; if (intento < fuentes.length) { this.src = fuentes[intento]; } else { showFallbackEPG(); } };
+  const btnMenu = document.getElementById('btnMenu'); const mobileMenu = document.getElementById('mobileMenu'); btnMenu.addEventListener('click', () => { mobileMenu.classList.toggle('show'); btnMenu.textContent = mobileMenu.classList.contains('show') ? '✕' : '☰'; }); document.querySelectorAll('#mobileMenu a').forEach(link => { link.addEventListener('click', () => { mobileMenu.classList.remove('show'); btnMenu.textContent = '☰'; }); });
+  function scrollToId(id){ return (e)=>{ e.preventDefault(); document.getElementById(id).scrollIntoView({behavior:'smooth', block:'start'});} } document.getElementById('btnCotizador')?.addEventListener('click', scrollToId('cotizador')); document.getElementById('floatContacto').addEventListener('click', scrollToId('contacto'));
+  const textos = ["20 años en TI → Creador", "Gerente → Full Stack", "Infraestructura → Productos"]; let iTexto = 0, iLetra = 0, borrando = false; const elTyping = document.getElementById('typing'); function typeEffect() { const actual = textos[iTexto]; if (!borrando) { elTyping.textContent = actual.substring(0, iLetra + 1); iLetra++; if (iLetra === actual.length) { borrando = true; setTimeout(typeEffect, 1500); return; } } else { elTyping.textContent = actual.substring(0, iLetra - 1); iLetra--; if (iLetra === 0) { borrando = false; iTexto = (iTexto + 1) % textos.length; } } setTimeout(typeEffect, borrando ? 50 : 100); } typeEffect();
+  const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); }); }, { threshold: 0.15 }); document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  const toastEl = document.getElementById('toast'); function showToast(msg){ toastEl.textContent=msg; toastEl.classList.add('show'); setTimeout(()=>toastEl.classList.remove('show'),3000); }
+  const themeToggle = document.getElementById('themeToggle'); const savedTheme = localStorage.getItem('edwin-theme'); if (savedTheme === 'light') { document.body.classList.add('light'); themeToggle.textContent = '☀️'; } themeToggle.addEventListener('click', () => { const isLight = document.body.classList.toggle('light'); const newTheme = isLight ? 'light' : 'dark'; localStorage.setItem('edwin-theme', newTheme); themeToggle.textContent = isLight ? '☀️' : '🌙'; showToast(`Modo ${isLight ? 'claro' : 'oscuro'} guardado ✓`); });
+  const form = document.getElementById('contactForm'); const inputs = form.querySelectorAll('input[name], textarea[name]'); const saveIndicator = document.getElementById('saveIndicator'); inputs.forEach(input => { const saved = localStorage.getItem(`edwin-form-${input.name}`); if (saved) input.value = saved; }); inputs.forEach(input => { input.addEventListener('input', () => { localStorage.setItem(`edwin-form-${input.name}`, input.value); saveIndicator.classList.add('show'); setTimeout(() => saveIndicator.classList.remove('show'), 1200); }); }); form.addEventListener('submit', () => { inputs.forEach(input => { localStorage.removeItem(`edwin-form-${input.name}`); }); });
   function updateDayCounter(){ const start = new Date('2026-10-20'); const today = new Date(); const diff = Math.floor((today - start) / (1000*60*60*24)) + 1; if (diff>0){ document.getElementById('day-counter').textContent=`Día ${diff} / 100 - Ruta Cero a Cien`; document.getElementById('footer-day').textContent=`Día ${diff} Activo`; } } updateDayCounter();
-  console.log('%c👋 ¡Hola, reclutador curioso!', 'color:#00ff88; font-size:22px; font-weight:bold;'); window.edwin={ info:()=>({nombre:'Edwin Piña García', rol:'Gerente Sistemas → Full Stack', ubicacion:'Zapopan, Jalisco', dia:'Día 6/100', cotizador:'$700 por cámara instalada', stack:['HTML','CSS','JS','LocalStorage','Funciones'], github:'https://github.com/edwin839'}), cotizar:(n)=>n*700 }; console.log('Tip: escribe edwin.info() o edwin.cotizar(8)');
+  console.log('%c👋 Día 6 PRO Cotizador', 'color:#00ff88; font-size:20px; font-weight:bold;'); window.edwin={ info:()=>({nombre:'Edwin Piña', dia:'Día 6/100', cotizadorPRO:'Cámara $1,188 + NVR $3,500 + Disco $1,500 + Cable $19/m + Instal $700'}), cotizar:(n,m=60)=>{ const PRECIO={cam:1188, nvr:3500, disco:1500, cable:19, inst:700}; return n*PRECIO.cam + n*PRECIO.inst + PRECIO.nvr + PRECIO.disco + m*PRECIO.cable; } }; console.log('edwin.cotizar(4,60) =', window.edwin.cotizar(4,60));
 
-  // =====================================================
-  // DÍA 6 - LÓGICA COTIZADOR (comentado línea por línea)
-  // =====================================================
+  // ============ DÍA 6 PRO - PRECIOS CON 25% ============
+  const PRECIOS = { camara: 1188, nvr: 3500, disco: 1500, cable: 19, instalacion: 700 };
 
-  // 1. AGARRAR LOS ELEMENTOS DEL DOM (como buscar herramientas en tu bodega)
-  const inputCamaras = document.getElementById('inputCamaras'); // el slider de 1-32
-  const labelCamaras = document.getElementById('labelCamaras'); // el texto "4 cámaras"
-  const inputTipo = document.getElementById('inputTipo'); // bala/domo
-  const inputCliente = document.getElementById('inputCliente'); // nombre cliente
-  const checkIVA = document.getElementById('checkIVA'); // checkbox IVA
-  const checkGarantia = document.getElementById('checkGarantia'); // no lo usamos en precio pero lo guardamos
+  const inputCamaras = document.getElementById('inputCamaras');
+  const inputCable = document.getElementById('inputCable');
+  const inputCliente = document.getElementById('inputCliente');
+  const checkNVR = document.getElementById('checkNVR');
+  const checkDisco = document.getElementById('checkDisco');
   const checkInstalacion = document.getElementById('checkInstalacion');
+  const checkIVA = document.getElementById('checkIVA');
 
-  // Elementos donde MOSTRAMOS el resultado
+  const labelCamaras = document.getElementById('labelCamaras');
+  const labelCable = document.getElementById('labelCable');
   const resTotal = document.getElementById('resTotal');
   const resNum = document.getElementById('resNum');
   const resCliente = document.getElementById('resCliente');
   const dCamaras = document.getElementById('dCamaras');
+  const dMetros = document.getElementById('dMetros');
+  const dInstNum = document.getElementById('dInstNum');
   const dPrecioCamaras = document.getElementById('dPrecioCamaras');
+  const dNVR = document.getElementById('dNVR');
+  const dDisco = document.getElementById('dDisco');
+  const dCable = document.getElementById('dCable');
+  const dInstalacion = document.getElementById('dInstalacion');
+  const dSub = document.getElementById('dSub');
+  const dTotalFinal = document.getElementById('dTotalFinal');
+  const rowNVR = document.getElementById('rowNVR');
+  const rowDisco = document.getElementById('rowDisco');
+  const rowInst = document.getElementById('rowInst');
   const rowIVA = document.getElementById('rowIVA');
   const dIVA = document.getElementById('dIVA');
-  const dTotalFinal = document.getElementById('dTotalFinal');
 
-  // 2. FUNCIÓN PRINCIPAL - LA RECETA (esto es lo nuevo de Día 6)
-  function calcularCotizacion() {
-    // a) LEER los ingredientes que puso el usuario
-    const numCamaras = parseInt(inputCamaras.value); // convierte texto "4" a número 4
-    const precioPorCamara = 700; // tu precio de Merka, fijo
-    const conIVA = checkIVA.checked; // true si está palomeado, false si no
-    const cliente = inputCliente.value.trim() || 'Público general'; // si no escribe nada, usa default
+  function calcularCotizacionPRO() {
+    const numCamaras = parseInt(inputCamaras.value);
+    const metrosCable = parseInt(inputCable.value);
+    const conNVR = checkNVR.checked;
+    const conDisco = checkDisco.checked;
+    const conInst = checkInstalacion.checked;
+    const conIVA = checkIVA.checked;
+    const cliente = inputCliente.value.trim() || 'Público general';
 
-    // b) HACER LA MATEMÁTICA (lógica de negocio)
-    const subtotal = numCamaras * precioPorCamara; // 4 * 700 = 2800
-    let iva = 0;
-    if (conIVA) { // si conIVA es true
-      iva = subtotal * 0.16; // 16% de IVA
-    }
-    const total = subtotal + iva; // total final
+    // CÁLCULOS
+    const costoCamaras = numCamaras * PRECIOS.camara;
+    const costoNVR = conNVR ? PRECIOS.nvr : 0;
+    const costoDisco = conDisco ? PRECIOS.disco : 0;
+    const costoCable = metrosCable * PRECIOS.cable;
+    const costoInst = conInst ? numCamaras * PRECIOS.instalacion : 0;
 
-    // c) MOSTRAR en pantalla (actualizar el DOM)
-    labelCamaras.textContent = `${numCamaras} ${numCamaras===1?'cámara':'cámaras'}`; // cambia label del slider
-    resNum.textContent = numCamaras; // número en el resultado grande
-    dCamaras.textContent = numCamaras; // número en el desglose
-    resCliente.textContent = cliente; // nombre cliente
-    
-    // Formatear a pesos mexicanos: $2,800
-    const formatoPesos = (n) => `$${n.toLocaleString('es-MX')}`;
-    resTotal.textContent = formatoPesos(total);
-    dPrecioCamaras.textContent = formatoPesos(subtotal);
-    dTotalFinal.textContent = `${formatoPesos(total)} MXN`;
+    const subtotal = costoCamaras + costoNVR + costoDisco + costoCable + costoInst;
+    const iva = conIVA ? subtotal * 0.16 : 0;
+    const total = subtotal + iva;
 
-    if (conIVA) {
-      rowIVA.style.display = 'flex'; // muestra la fila de IVA
-      dIVA.textContent = formatoPesos(iva);
-    } else {
-      rowIVA.style.display = 'none'; // oculta la fila de IVA
-    }
+    // MOSTRAR
+    const fmt = (n) => `$${n.toLocaleString('es-MX')}`;
+    labelCamaras.textContent = `${numCamaras} ${numCamaras===1?'cámara':'cámaras'}`;
+    labelCable.textContent = `${metrosCable} m`;
+    resNum.textContent = numCamaras;
+    resCliente.textContent = cliente;
+    dCamaras.textContent = numCamaras;
+    dMetros.textContent = metrosCable;
+    dInstNum.textContent = numCamaras;
 
-    // d) REGRESAR el objeto para guardarlo después
-    return { numCamaras, precioPorCamara, subtotal, iva, total, cliente, tipo: inputTipo.value, fecha: new Date().toLocaleDateString() };
+    dPrecioCamaras.textContent = fmt(costoCamaras);
+    dNVR.textContent = fmt(costoNVR);
+    dDisco.textContent = fmt(costoDisco);
+    dCable.textContent = fmt(costoCable);
+    dInstalacion.textContent = fmt(costoInst);
+    dSub.textContent = fmt(subtotal);
+    resTotal.textContent = fmt(total);
+    dTotalFinal.textContent = `${fmt(total)} MXN`;
+
+    rowNVR.style.display = conNVR ? 'flex' : 'none';
+    rowDisco.style.display = conDisco ? 'flex' : 'none';
+    rowInst.style.display = conInst ? 'flex' : 'none';
+
+    if (conIVA) { rowIVA.style.display = 'flex'; dIVA.textContent = fmt(iva); } else { rowIVA.style.display = 'none'; }
+
+    return { numCamaras, metrosCable, conNVR, conDisco, conInst, conIVA, cliente, costoCamaras, costoNVR, costoDisco, costoCable, costoInst, subtotal, iva, total, fecha: new Date().toLocaleDateString() };
   }
 
-  // 3. ESCUCHAR CAMBIOS (en cuanto mueve algo, recalcula)
-  // Esto es como poner sensores en tu bodega: si alguien mueve una caja, suena alarma
-  inputCamaras.addEventListener('input', calcularCotizacion); // cada que mueve el slider
-  inputTipo.addEventListener('change', calcularCotizacion); // cambia tipo
-  inputCliente.addEventListener('input', calcularCotizacion); // escribe cliente
-  checkIVA.addEventListener('change', calcularCotizacion); // palomea IVA
+  // Eventos
+  [inputCamaras, inputCable, inputCliente, checkNVR, checkDisco, checkInstalacion, checkIVA].forEach(el=>{ el.addEventListener('input', calcularCotizacionPRO); el.addEventListener('change', calcularCotizacionPRO); });
 
-  // 4. GUARDAR COTIZACIÓN EN LocalStorage (tu bodega de memoria)
+  // Guardar
   const btnGuardarCot = document.getElementById('btnGuardarCot');
   const saveCotIndicator = document.getElementById('saveCotIndicator');
   const historialCount = document.getElementById('historialCount');
   const historialBox = document.getElementById('historialBox');
+  function actualizarContadorHistorial(){ const h = JSON.parse(localStorage.getItem('edwin-cot-PRO') || '[]'); historialCount.textContent = h.length; return h; }
+  btnGuardarCot.addEventListener('click', ()=>{ const cot = calcularCotizacionPRO(); let h = JSON.parse(localStorage.getItem('edwin-cot-PRO') || '[]'); h.unshift(cot); if (h.length>20) h=h.slice(0,20); localStorage.setItem('edwin-cot-PRO', JSON.stringify(h)); actualizarContadorHistorial(); saveCotIndicator.classList.add('show'); setTimeout(()=>saveCotIndicator.classList.remove('show'),2000); showToast(`Guardada ${cot.cliente} - ${fmt2(cot.total)}`); });
+  function fmt2(n){ return `$${n.toLocaleString('es-MX')}`; }
+  document.getElementById('btnVerHistorial').addEventListener('click', (e)=>{ e.preventDefault(); const h=actualizarContadorHistorial(); if(h.length===0){showToast('Sin cotizaciones'); return;} historialBox.style.display = historialBox.style.display==='none'?'block':'none'; historialBox.innerHTML = '<b>📋 Historial PRO</b><br><br>' + h.map((c,i)=>`<div style="padding:6px 0; border-bottom:1px solid var(--border); font-size:13px;">${i+1}. ${c.cliente} - ${c.numCamaras}cám ${c.metrosCable}m - <b style="color:var(--accent);">${fmt2(c.total)}</b> <span style="color:var(--muted);">${c.fecha}</span></div>`).join(''); });
+  document.getElementById('btnBorrarHistorial').addEventListener('click', (e)=>{ e.preventDefault(); if(confirm('¿Borrar historial?')){ localStorage.removeItem('edwin-cot-PRO'); actualizarContadorHistorial(); historialBox.style.display='none'; showToast('Historial borrado'); } });
 
-  function actualizarContadorHistorial(){
-    const historial = JSON.parse(localStorage.getItem('edwin-cotizaciones') || '[]');
-    historialCount.textContent = historial.length;
-    return historial;
-  }
+  // Imprimir
+  document.getElementById('btnImprimir').addEventListener('click', ()=>{ const c=calcularCotizacionPRO(); const w=window.open('', '_blank'); w.document.write(`<html><head><title>Cotización ${c.cliente}</title><style>body{font-family:Arial,sans-serif; padding:40px; color:#111;} h1{color:#00aa55;} table{width:100%; border-collapse:collapse; margin-top:20px;} td,th{border:1px solid #ccc; padding:10px; text-align:left;} .total{font-weight:bold; background:#eafff4;} .head{background:#111; color:#00ff88;}</style></head><body><h1>Merka Comercializadora - Cotización CCTV PRO</h1><p><b>Cliente:</b> ${c.cliente}<br><b>Fecha:</b> ${c.fecha}<br><b>Proyecto:</b> ${c.numCamaras} cámaras HD</p><table><tr class="head"><th>Concepto</th><th>Cant</th><th>P.Unit</th><th>Total</th></tr><tr><td>Cámara HD 1080p Hikvision</td><td>${c.numCamaras}</td><td>$1,188</td><td>$${c.costoCamaras.toLocaleString()}</td></tr>${c.conNVR?`<tr><td>NVR 8ch</td><td>1</td><td>$3,500</td><td>$${c.costoNVR.toLocaleString()}</td></tr>`:''}${c.conDisco?`<tr><td>Disco 1TB Purple</td><td>1</td><td>$1,500</td><td>$${c.costoDisco.toLocaleString()}</td></tr>`:''}<tr><td>Cable UTP</td><td>${c.metrosCable}m</td><td>$19</td><td>$${c.costoCable.toLocaleString()}</td></tr>${c.conInst?`<tr><td>Instalación profesional</td><td>${c.numCamaras}</td><td>$700</td><td>$${c.costoInst.toLocaleString()}</td></tr>`:''}<tr><td colspan="3">Subtotal</td><td>$${c.subtotal.toLocaleString()}</td></tr>${c.conIVA?`<tr><td colspan="3">IVA 16%</td><td>$${c.iva.toLocaleString()}</td></tr>`:''}<tr class="total"><td colspan="3">TOTAL</td><td>$${c.total.toLocaleString()} MXN</td></tr></table><p style="margin-top:20px; font-size:12px;">Precios con 25% utilidad incluida. Incluye configuración app móvil. Validez 15 días. Merka Comercializadora - Zapopan</p><script>window.print()<\/script></body></html>`); });
 
-  btnGuardarCot.addEventListener('click', () => {
-    const cotActual = calcularCotizacion(); // calcula lo de ahora
-    let historial = JSON.parse(localStorage.getItem('edwin-cotizaciones') || '[]'); // baja historial o array vacío
-    historial.unshift(cotActual); // agrega al inicio
-    if (historial.length > 20) historial = historial.slice(0,20); // solo guarda últimas 20
-    localStorage.setItem('edwin-cotizaciones', JSON.stringify(historial)); // guarda de nuevo
-    actualizarContadorHistorial();
-    saveCotIndicator.classList.add('show');
-    setTimeout(()=>saveCotIndicator.classList.remove('show'),2000);
-    showToast(`Cotización para ${cotActual.cliente} guardada ✓ $${cotActual.total.toLocaleString()}`);
-  });
-
-  // Ver historial
-  document.getElementById('btnVerHistorial').addEventListener('click', (e)=>{
-    e.preventDefault();
-    const historial = actualizarContadorHistorial();
-    if (historial.length===0){ showToast('Aún no hay cotizaciones guardadas'); return; }
-    historialBox.style.display = historialBox.style.display==='none'?'block':'none';
-    historialBox.innerHTML = '<b>📋 Historial (últimas 20)</b><br><br>' + historial.map((c,i)=>`<div style="padding:6px 0; border-bottom:1px solid var(--border); font-size:13px;">${i+1}. ${c.cliente} - ${c.numCamaras}cám - <b style="color:var(--accent);">$${c.total.toLocaleString()}</b> <span style="color:var(--muted);">${c.fecha}</span></div>`).join('');
-  });
-
-  // Botón imprimir
-  document.getElementById('btnImprimir').addEventListener('click', ()=>{
-    const cot = calcularCotizacion();
-    const ventana = window.open('', '_blank');
-    ventana.document.write(`<html><head><title>Cotización ${cot.cliente}</title><style>body{font-family:sans-serif; padding:40px;} h1{color:#00aa55;} table{width:100%; border-collapse:collapse; margin-top:20px;} td,th{border:1px solid #ccc; padding:10px; text-align:left;} .total{font-weight:bold; background:#f0f0f0;}</style></head><body><h1>Merka Comercializadora - Cotización CCTV</h1><p><b>Cliente:</b> ${cot.cliente}<br><b>Fecha:</b> ${cot.fecha}<br><b>Cámaras:</b> ${cot.numCamaras} x $700 instaladas</p><table><tr><th>Concepto</th><th>Total</th></tr><tr><td>${cot.numCamaras} cámaras HD + Instalación + 15m cable + Garantía</td><td>$${cot.subtotal.toLocaleString()}</td></tr>${cot.iva>0?`<tr><td>IVA 16%</td><td>$${cot.iva.toLocaleString()}</td></tr>`:''}<tr class="total"><td>TOTAL</td><td>$${cot.total.toLocaleString()} MXN</td></tr></table><p style="margin-top:20px; font-size:12px; color:#666;">Precio válido 15 días. No incluye NVR si ya cuenta con equipo. Contacto: Edwin Piña García - Merka</p><script>window.print()<\/script></body></html>`);
-  });
-
-  // Inicializar
-  calcularCotizacion();
-  actualizarContadorHistorial();
+  calcularCotizacionPRO(); actualizarContadorHistorial();
 </script>
 </body>
 </html>
